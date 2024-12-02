@@ -1,0 +1,4 @@
+Play balancing
+Torps still seem too string (2 shots seem to always kill)
+Don't want to just go around 2-shotting all enemies - no fun
+Maybe make it usually take 3 shots, or raise enemy health slightly (same thing)

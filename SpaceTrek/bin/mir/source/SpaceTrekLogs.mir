@@ -1,0 +1,694 @@
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 1; ]
+import Toybox.Graphics;
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 2; ]
+import Toybox.Lang;
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 3; ]
+import Toybox.System;
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 4; ]
+import Toybox.WatchUi;
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 5; ]
+import Toybox.Math;
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 6; ]
+import Toybox.Application.Storage;
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 7; ]
+import Toybox.Time.Gregorian;
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 8; ]
+import Toybox.Time;
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 10; @position = 4; ]
+var currtime;
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 11; @position = 4; ]
+var messageColors;
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 31; ]
+function showLogs() {
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_31_20_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 32 4 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_32_4_if_stmt:
+    %tmp.2 = getv ? :Toybox;
+    %tmp.3 = getv %tmp.2 :WatchUi;
+    %tmp.5 = const :CustomMenu;
+    %tmp.6 = canhazplz %tmp.3 %tmp.5;
+    %tmp.7 = not %tmp.6;
+    bf %tmp.7 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_32_4_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_32_4_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_32_43_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 32 45 ]
+    ret ?;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_32_43_stop:
+    goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_32_4_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_32_4_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 33 4 ]
+    %tmp.8 = getm $.Toybox.Time.Gregorian;
+    %tmp.9 = getv function %tmp.8 :info;
+    %tmp.12 = getm $.Toybox.Time;
+    %tmp.13 = getv function ? %tmp.12 :Moment;
+    %tmp.14 = getm $.Toybox.Time;
+    %tmp.15 = getv function %tmp.14 :now;
+    %tmp.16 = invoke %tmp.14 %tmp.15();
+    %tmp.17 = getv function %tmp.16 :value;
+    %tmp.18 = invoke %tmp.16 %tmp.17();
+    %tmp.10 = newc %tmp.13 (%tmp.18);
+    %tmp.19 = getm $.Toybox.Time;
+    %tmp.20 = getv %tmp.19 :FORMAT_MEDIUM;
+    %tmp.21 = invoke %tmp.8 %tmp.9(%tmp.10, %tmp.20);
+    putv self :currtime %tmp.21;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 34 4 ]
+    [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_31_20_start" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_31_20_stop" ]
+    %logsMenu.1 = local;
+    %tmp.24 = getm $.Toybox.WatchUi;
+    %tmp.25 = getv function ? %tmp.24 :CustomMenu;
+    %tmp.26 = 35;
+    %tmp.27 = getm $.Toybox.Graphics;
+    %tmp.28 = getv %tmp.27 :COLOR_BLACK;
+    %tmp.29 = newd 2;
+    %tmp.31 = const :title;
+    %tmp.35 = getm $;
+    %tmp.36 = getv %tmp.35 :LogsDrawableMenuTitle;
+    %tmp.32 = newc %tmp.36 ();
+    %tmp.37 = dup %tmp.29;
+    %tmp.38 = aputv %tmp.37 %tmp.31 %tmp.32;
+    %tmp.40 = const :titleItemHeight;
+    %tmp.41 = 90;
+    %tmp.42 = dup %tmp.38;
+    %tmp.43 = aputv %tmp.42 %tmp.40 %tmp.41;
+    %tmp.22 = newc %tmp.25 (%tmp.26, %tmp.28, %tmp.43);
+    lputv %logsMenu.1 %tmp.22;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 38 4 ]
+    for @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_38_4_for_test @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_38_4_for_incr @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_38_4_for_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_38_4_for_init:
+    [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_38_4_for_begin" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_38_4_for_end" ]
+    %i.2 = local;
+    %tmp.45 = getv ? :shiplog;
+    %tmp.46 = getv function %tmp.45 :size;
+    %tmp.47 = invoke %tmp.45 %tmp.46();
+    %tmp.48 = 1;
+    %tmp.49 = sub %tmp.47 %tmp.48;
+    lputv %i.2 %tmp.49;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_38_4_for_test:
+    %tmp.51 = lgetv %i.2;
+    %tmp.52 = 0;
+    %tmp.53 = gte %tmp.51 %tmp.52;
+    bf %tmp.53 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_38_4_for_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_38_4_for_begin:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_38_42_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 39 8 ]
+    %tmp.54 = lgetv %logsMenu.1;
+    %tmp.55 = getv function %tmp.54 :addItem;
+    %tmp.59 = getm $;
+    %tmp.60 = getv %tmp.59 :LogsCustomItem;
+    %tmp.62 = lgetv %i.2;
+    %tmp.56 = newc %tmp.60 (%tmp.62);
+    invoke %tmp.54 %tmp.55(%tmp.56);
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_38_42_stop:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_38_4_for_incr:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 38 ]
+    %tmp.65 = lgetv %i.2;
+    %tmp.66 = sub %tmp.65 1;
+    lputv %i.2 %tmp.66;
+    goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_38_4_for_test;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_38_4_for_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 41 4 ]
+    %tmp.67 = getm $.Toybox.WatchUi;
+    %tmp.68 = getv function %tmp.67 :pushView;
+    %tmp.70 = lgetv %logsMenu.1;
+    %tmp.74 = getm $;
+    %tmp.75 = getv %tmp.74 :LogsDelegate;
+    %tmp.71 = newc %tmp.75 ();
+    %tmp.76 = getm $.Toybox.WatchUi;
+    %tmp.77 = getv %tmp.76 :SLIDE_UP;
+    invoke %tmp.67 %tmp.68(%tmp.70, %tmp.71, %tmp.77);
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 42 4 ]
+    %tmp.78 = getm $.Toybox.WatchUi;
+    %tmp.79 = getv function %tmp.78 :requestUpdate;
+    invoke %tmp.78 %tmp.79();
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_31_20_stop:
+}
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 45; ]
+class LogsDelegate extends WatchUi.Menu2InputDelegate{
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 45; ]
+    <init> {
+    }
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 45; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 46; ]
+    public
+    function initialize() as Void {
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_46_33_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 47 8 ]
+        %tmp.2 = getv ? :Menu2InputDelegate;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_46_33_stop:
+    }
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 50; ]
+    public
+    function onSelect(item as MenuItem) {
+    }
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 53; ]
+    public
+    function onBack() {
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_53_29_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 54 8 ]
+        %tmp.1 = getm $.Toybox.WatchUi;
+        %tmp.2 = getv function %tmp.1 :popView;
+        %tmp.3 = getm $.Toybox.WatchUi;
+        %tmp.4 = getv %tmp.3 :SLIDE_DOWN;
+        invoke %tmp.1 %tmp.2(%tmp.4);
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_53_29_stop:
+    }
+}
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 58; ]
+class LogsDrawableMenuTitle extends WatchUi.Drawable{
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 58; ]
+    <init> {
+    }
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 58; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 59; ]
+    public
+    function initialize() as Void {
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_59_33_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 60 8 ]
+        %tmp.2 = getv ? :Drawable;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        %tmp.4 = newd 0;
+        invoke %tmp.2 %tmp.3(%tmp.4);
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_59_33_stop:
+    }
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 63; ]
+    public
+    function draw(dc as Dc) as Void {
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_63_43_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 64 8 ]
+        %tmp.1 = lgetv %dc;
+        %tmp.2 = getv function %tmp.1 :setColor;
+        %tmp.3 = getm $.Toybox.Graphics;
+        %tmp.4 = getv %tmp.3 :COLOR_WHITE;
+        %tmp.5 = getm $.Toybox.Graphics;
+        %tmp.6 = getv %tmp.5 :COLOR_BLACK;
+        invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 65 8 ]
+        %tmp.7 = lgetv %dc;
+        %tmp.8 = getv function %tmp.7 :clear;
+        invoke %tmp.7 %tmp.8();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 66 8 ]
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_63_43_start" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_63_43_stop" ]
+        %customThemeTitle.1 = local;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 67 8 ]
+        %tmp.9 = lgetv %dc;
+        %tmp.10 = getv function %tmp.9 :drawText;
+        %tmp.11 = lgetv %dc;
+        %tmp.12 = getv function %tmp.11 :getWidth;
+        %tmp.13 = invoke %tmp.11 %tmp.12();
+        %tmp.14 = 2;
+        %tmp.15 = div %tmp.13 %tmp.14;
+        %tmp.16 = lgetv %dc;
+        %tmp.17 = getv function %tmp.16 :getHeight;
+        %tmp.18 = invoke %tmp.16 %tmp.17();
+        %tmp.19 = .7;
+        %tmp.20 = mul %tmp.18 %tmp.19;
+        %tmp.21 = getv function %tmp.20 :toNumber;
+        %tmp.22 = invoke %tmp.20 %tmp.21();
+        %tmp.23 = getm $.Toybox.Graphics;
+        %tmp.24 = getv %tmp.23 :FONT_TINY;
+        %tmp.25 = "Ship's Log";
+        %tmp.26 = getm $.Toybox.Graphics;
+        %tmp.27 = getv %tmp.26 :TEXT_JUSTIFY_CENTER;
+        %tmp.28 = getm $.Toybox.Graphics;
+        %tmp.29 = getv %tmp.28 :TEXT_JUSTIFY_VCENTER;
+        %tmp.30 = bitor %tmp.27 %tmp.29;
+        invoke %tmp.9 %tmp.10(%tmp.15, %tmp.22, %tmp.24, %tmp.25, %tmp.30);
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 68 8 ]
+        %tmp.31 = lgetv %dc;
+        %tmp.32 = getv function %tmp.31 :setPenWidth;
+        %tmp.33 = 3;
+        invoke %tmp.31 %tmp.32(%tmp.33);
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 69 8 ]
+        %tmp.34 = lgetv %dc;
+        %tmp.35 = getv function %tmp.34 :drawLine;
+        %tmp.36 = 0;
+        %tmp.37 = lgetv %dc;
+        %tmp.38 = getv function %tmp.37 :getHeight;
+        %tmp.39 = invoke %tmp.37 %tmp.38();
+        %tmp.40 = lgetv %dc;
+        %tmp.41 = getv function %tmp.40 :getWidth;
+        %tmp.42 = invoke %tmp.40 %tmp.41();
+        %tmp.43 = lgetv %dc;
+        %tmp.44 = getv function %tmp.43 :getHeight;
+        %tmp.45 = invoke %tmp.43 %tmp.44();
+        invoke %tmp.34 %tmp.35(%tmp.36, %tmp.39, %tmp.42, %tmp.45);
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_63_43_stop:
+    }
+}
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 73; ]
+class LogsCustomItem extends WatchUi.CustomMenuItem{
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 73; ]
+    <init> {
+    }
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 73; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 74; @position = 16; ]
+    private
+    var _id as Number;
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 76; ]
+    public
+    function initialize(id as Number) as Void {
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_76_45_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 77 8 ]
+        %tmp.2 = getv ? :CustomMenuItem;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        %tmp.5 = lgetv %id;
+        %tmp.6 = newd 0;
+        invoke %tmp.2 %tmp.3(%tmp.5, %tmp.6);
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 78 8 ]
+        %tmp.8 = lgetv %id;
+        putv self :_id %tmp.8;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_76_45_stop:
+    }
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 81; ]
+    public
+    function draw(dc as Dc) as Void {
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_81_43_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 82 8 ]
+        %tmp.1 = lgetv %dc;
+        %tmp.2 = getv function %tmp.1 :setColor;
+        %tmp.3 = 0xffffff;
+        %tmp.4 = 0x000000;
+        invoke %tmp.1 %tmp.2(%tmp.3, %tmp.4);
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 83 8 ]
+        %tmp.5 = lgetv %dc;
+        %tmp.6 = getv function %tmp.5 :clear;
+        invoke %tmp.5 %tmp.6();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 84 8 ]
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_81_43_start" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_81_43_stop" ]
+        %w.1 = local;
+        %tmp.7 = lgetv %dc;
+        %tmp.8 = getv function %tmp.7 :getWidth;
+        %tmp.9 = invoke %tmp.7 %tmp.8();
+        lputv %w.1 %tmp.9;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 85 8 ]
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_81_43_start" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_81_43_stop" ]
+        %h.2 = local;
+        %tmp.10 = lgetv %dc;
+        %tmp.11 = getv function %tmp.10 :getHeight;
+        %tmp.12 = invoke %tmp.10 %tmp.11();
+        lputv %h.2 %tmp.12;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 86 8 ]
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_81_43_start" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_81_43_stop" ]
+        %x1.3 = local;
+        %tmp.14 = lgetv %w.1;
+        %tmp.15 = 30;
+        %tmp.16 = mul %tmp.14 %tmp.15;
+        %tmp.17 = 100;
+        %tmp.18 = div %tmp.16 %tmp.17;
+        lputv %x1.3 %tmp.18;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 87 8 ]
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_81_43_start" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_81_43_stop" ]
+        %x2.4 = local;
+        %tmp.20 = lgetv %w.1;
+        %tmp.21 = 35;
+        %tmp.22 = mul %tmp.20 %tmp.21;
+        %tmp.23 = 100;
+        %tmp.24 = div %tmp.22 %tmp.23;
+        lputv %x2.4 %tmp.24;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 88 8 ]
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_81_43_start" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_81_43_stop" ]
+        %t.5 = local;
+        %tmp.25 = getm $.Toybox.Time.Gregorian;
+        %tmp.26 = getv function %tmp.25 :info;
+        %tmp.29 = getm $.Toybox.Time;
+        %tmp.30 = getv function ? %tmp.29 :Moment;
+        %tmp.32 = getv ? :shiplog;
+        %tmp.34 = getv ? :_id;
+        %tmp.35 = agetv %tmp.32 %tmp.34;
+        %tmp.36 = 0;
+        %tmp.37 = agetv %tmp.35 %tmp.36;
+        %tmp.27 = newc %tmp.30 (%tmp.37);
+        %tmp.38 = getm $.Toybox.Time;
+        %tmp.39 = getv %tmp.38 :FORMAT_MEDIUM;
+        %tmp.40 = invoke %tmp.25 %tmp.26(%tmp.27, %tmp.39);
+        lputv %t.5 %tmp.40;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 89 8 ]
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_81_43_start" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_81_43_stop" ]
+        %m.6 = local;
+        %tmp.42 = getv ? :shiplog;
+        %tmp.44 = getv ? :_id;
+        %tmp.45 = agetv %tmp.42 %tmp.44;
+        %tmp.46 = 1;
+        %tmp.47 = agetv %tmp.45 %tmp.46;
+        lputv %m.6 %tmp.47;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 90 8 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_90_8_if_stmt:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_90_12_begin:
+        %tmp.48 = lgetv %t.5;
+        %tmp.49 = getv %tmp.48 :month;
+        %tmp.50 = getv function %tmp.49 :equals;
+        %tmp.52 = getv ? :currtime;
+        %tmp.53 = getv %tmp.52 :month;
+        %tmp.54 = invoke %tmp.49 %tmp.50(%tmp.53);
+        %tmp.55 = dup %tmp.54;
+        bf %tmp.55 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_90_47_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_90_47_true:
+        %tmp.56 = lgetv %t.5;
+        %tmp.57 = getv %tmp.56 :day;
+        %tmp.58 = getv function %tmp.57 :equals;
+        %tmp.60 = getv ? :currtime;
+        %tmp.61 = getv %tmp.60 :day;
+        %tmp.62 = invoke %tmp.57 %tmp.58(%tmp.61);
+        %tmp.63 = and %tmp.54 %tmp.62;
+        push %tmp.63;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_90_47_end:
+        %tmp.64 = phi [%tmp.55 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_90_12_begin] [%tmp.63 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_90_47_true] [%tmp.64 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_90_47_end];
+        bf %tmp.64 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_90_8_if_false;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_90_8_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_90_75_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 91 12 ]
+        %tmp.65 = lgetv %t.5;
+        %tmp.66 = getv %tmp.65 :hour;
+        %tmp.67 = ":";
+        %tmp.68 = add %tmp.66 %tmp.67;
+        %tmp.69 = lgetv %t.5;
+        %tmp.70 = getv %tmp.69 :min;
+        %tmp.71 = getv function %tmp.70 :format;
+        %tmp.72 = "%02d";
+        %tmp.73 = invoke %tmp.70 %tmp.71(%tmp.72);
+        %tmp.74 = add %tmp.68 %tmp.73;
+        %tmp.75 = ":";
+        %tmp.76 = add %tmp.74 %tmp.75;
+        %tmp.77 = lgetv %t.5;
+        %tmp.78 = getv %tmp.77 :sec;
+        %tmp.79 = getv function %tmp.78 :format;
+        %tmp.80 = "%02d";
+        %tmp.81 = invoke %tmp.78 %tmp.79(%tmp.80);
+        %tmp.82 = add %tmp.76 %tmp.81;
+        lputv %t.5 %tmp.82;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_90_75_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_90_8_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_90_8_if_false:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_92_15_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 93 12 ]
+        %tmp.83 = lgetv %t.5;
+        %tmp.84 = getv %tmp.83 :month;
+        %tmp.85 = " ";
+        %tmp.86 = add %tmp.84 %tmp.85;
+        %tmp.87 = lgetv %t.5;
+        %tmp.88 = getv %tmp.87 :day;
+        %tmp.89 = add %tmp.86 %tmp.88;
+        lputv %t.5 %tmp.89;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_92_15_stop:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_90_8_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 95 8 ]
+        %tmp.90 = lgetv %dc;
+        %tmp.91 = getv function %tmp.90 :setColor;
+        %tmp.92 = 0x888888;
+        %tmp.93 = -1;
+        invoke %tmp.90 %tmp.91(%tmp.92, %tmp.93);
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 96 8 ]
+        %tmp.94 = lgetv %dc;
+        %tmp.95 = getv function %tmp.94 :drawText;
+        %tmp.97 = lgetv %x1.3;
+        %tmp.99 = lgetv %h.2;
+        %tmp.100 = 2;
+        %tmp.101 = div %tmp.99 %tmp.100;
+        %tmp.102 = getm $.Toybox.Graphics;
+        %tmp.103 = getv %tmp.102 :FONT_XTINY;
+        %tmp.105 = lgetv %t.5;
+        %tmp.106 = getm $.Toybox.Graphics;
+        %tmp.107 = getv %tmp.106 :TEXT_JUSTIFY_RIGHT;
+        %tmp.108 = getm $.Toybox.Graphics;
+        %tmp.109 = getv %tmp.108 :TEXT_JUSTIFY_VCENTER;
+        %tmp.110 = bitor %tmp.107 %tmp.109;
+        invoke %tmp.94 %tmp.95(%tmp.97, %tmp.101, %tmp.103, %tmp.105, %tmp.110);
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 97 8 ]
+        %tmp.111 = lgetv %dc;
+        %tmp.112 = getv function %tmp.111 :setColor;
+        %tmp.113 = 0xdddddd;
+        %tmp.114 = -1;
+        invoke %tmp.111 %tmp.112(%tmp.113, %tmp.114);
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 98 8 ]
+        for @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_98_8_for_test @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_98_8_for_incr @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_98_8_for_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_98_8_for_init:
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_98_8_for_begin" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_98_8_for_end" ]
+        %i.7 = local;
+        %tmp.115 = 0;
+        lputv %i.7 %tmp.115;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_98_8_for_test:
+        %tmp.117 = lgetv %i.7;
+        %tmp.119 = getv ? :messageColors;
+        %tmp.120 = getv function %tmp.119 :size;
+        %tmp.121 = invoke %tmp.119 %tmp.120();
+        %tmp.122 = lt %tmp.117 %tmp.121;
+        bf %tmp.122 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_98_8_for_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_98_8_for_begin:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_98_49_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 99 12 ]
+        %tmp.124 = getv ? :messageColors;
+        %tmp.126 = lgetv %i.7;
+        %tmp.127 = agetv %tmp.124 %tmp.126;
+        %tmp.128 = 0;
+        %tmp.129 = agetv %tmp.127 %tmp.128;
+        putv self :tmp %tmp.129;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 100 12 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_100_12_if_stmt:
+        %tmp.130 = lgetv %m.6;
+        %tmp.131 = getv function %tmp.130 :substring;
+        %tmp.132 = 0;
+        %tmp.134 = getv ? :tmp;
+        %tmp.135 = getv function %tmp.134 :length;
+        %tmp.136 = invoke %tmp.134 %tmp.135();
+        %tmp.137 = invoke %tmp.130 %tmp.131(%tmp.132, %tmp.136);
+        %tmp.138 = getv function %tmp.137 :equals;
+        %tmp.140 = getv ? :tmp;
+        %tmp.141 = invoke %tmp.137 %tmp.138(%tmp.140);
+        bf %tmp.141 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_100_12_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_100_12_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_100_57_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 101 16 ]
+        %tmp.142 = lgetv %dc;
+        %tmp.143 = getv function %tmp.142 :setColor;
+        %tmp.145 = getv ? :messageColors;
+        %tmp.147 = lgetv %i.7;
+        %tmp.148 = agetv %tmp.145 %tmp.147;
+        %tmp.149 = 1;
+        %tmp.150 = agetv %tmp.148 %tmp.149;
+        %tmp.151 = -1;
+        invoke %tmp.142 %tmp.143(%tmp.150, %tmp.151);
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 102 16 ]
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_98_8_for_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_100_57_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_100_12_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_100_12_if_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_98_49_stop:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_98_8_for_incr:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 98 ]
+        %tmp.154 = lgetv %i.7;
+        %tmp.155 = add %tmp.154 1;
+        lputv %i.7 %tmp.155;
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_98_8_for_test;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_98_8_for_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 105 8 ]
+        %tmp.156 = lgetv %dc;
+        %tmp.157 = getv function %tmp.156 :drawText;
+        %tmp.159 = lgetv %x2.4;
+        %tmp.161 = lgetv %h.2;
+        %tmp.162 = 2;
+        %tmp.163 = div %tmp.161 %tmp.162;
+        %tmp.164 = getm $.Toybox.Graphics;
+        %tmp.165 = getv %tmp.164 :FONT_XTINY;
+        %tmp.167 = lgetv %m.6;
+        %tmp.168 = getm $.Toybox.Graphics;
+        %tmp.169 = getv %tmp.168 :TEXT_JUSTIFY_LEFT;
+        %tmp.170 = getm $.Toybox.Graphics;
+        %tmp.171 = getv %tmp.170 :TEXT_JUSTIFY_VCENTER;
+        %tmp.172 = bitor %tmp.169 %tmp.171;
+        invoke %tmp.156 %tmp.157(%tmp.159, %tmp.163, %tmp.165, %tmp.167, %tmp.172);
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 106 8 ]
+        %tmp.173 = lgetv %dc;
+        %tmp.174 = getv function %tmp.173 :setColor;
+        %tmp.175 = 0x444444;
+        %tmp.176 = -1;
+        invoke %tmp.173 %tmp.174(%tmp.175, %tmp.176);
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 107 8 ]
+        %tmp.177 = lgetv %dc;
+        %tmp.178 = getv function %tmp.177 :setPenWidth;
+        %tmp.179 = 2;
+        invoke %tmp.177 %tmp.178(%tmp.179);
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 108 8 ]
+        %tmp.180 = lgetv %dc;
+        %tmp.181 = getv function %tmp.180 :drawLine;
+        %tmp.182 = 0;
+        %tmp.184 = lgetv %h.2;
+        %tmp.185 = 1;
+        %tmp.186 = sub %tmp.184 %tmp.185;
+        %tmp.188 = lgetv %w.1;
+        %tmp.190 = lgetv %h.2;
+        %tmp.191 = 1;
+        %tmp.192 = sub %tmp.190 %tmp.191;
+        invoke %tmp.180 %tmp.181(%tmp.182, %tmp.186, %tmp.188, %tmp.192);
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekLogs_mc_81_43_stop:
+    }
+}
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc"; @line = 1; ]
+<init> {
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekLogs.mc" 11 4 ]
+    %tmp.193 = newa 17;
+    %tmp.194 = newa 2;
+    %tmp.195 = "Shields";
+    %tmp.196 = dup %tmp.194;
+    %tmp.197 = aputv %tmp.196 0 %tmp.195;
+    %tmp.199 = getv ? :shieldcolor;
+    %tmp.200 = dup %tmp.197;
+    %tmp.201 = aputv %tmp.200 1 %tmp.199;
+    %tmp.202 = dup %tmp.193;
+    %tmp.203 = aputv %tmp.202 0 %tmp.201;
+    %tmp.204 = newa 2;
+    %tmp.205 = "Warp";
+    %tmp.206 = dup %tmp.204;
+    %tmp.207 = aputv %tmp.206 0 %tmp.205;
+    %tmp.209 = getv ? :shipcolor2;
+    %tmp.210 = dup %tmp.207;
+    %tmp.211 = aputv %tmp.210 1 %tmp.209;
+    %tmp.212 = dup %tmp.203;
+    %tmp.213 = aputv %tmp.212 1 %tmp.211;
+    %tmp.214 = newa 2;
+    %tmp.215 = "Dock";
+    %tmp.216 = dup %tmp.214;
+    %tmp.217 = aputv %tmp.216 0 %tmp.215;
+    %tmp.219 = getv ? :basecolor1;
+    %tmp.220 = dup %tmp.217;
+    %tmp.221 = aputv %tmp.220 1 %tmp.219;
+    %tmp.222 = dup %tmp.213;
+    %tmp.223 = aputv %tmp.222 2 %tmp.221;
+    %tmp.224 = newa 2;
+    %tmp.225 = "Enemy destroyed";
+    %tmp.226 = dup %tmp.224;
+    %tmp.227 = aputv %tmp.226 0 %tmp.225;
+    %tmp.229 = getv ? :enemycolor1;
+    %tmp.230 = dup %tmp.227;
+    %tmp.231 = aputv %tmp.230 1 %tmp.229;
+    %tmp.232 = dup %tmp.223;
+    %tmp.233 = aputv %tmp.232 3 %tmp.231;
+    %tmp.234 = newa 2;
+    %tmp.235 = "Enemy";
+    %tmp.236 = dup %tmp.234;
+    %tmp.237 = aputv %tmp.236 0 %tmp.235;
+    %tmp.239 = getv ? :enemycolor2;
+    %tmp.240 = dup %tmp.237;
+    %tmp.241 = aputv %tmp.240 1 %tmp.239;
+    %tmp.242 = dup %tmp.233;
+    %tmp.243 = aputv %tmp.242 4 %tmp.241;
+    %tmp.244 = newa 2;
+    %tmp.245 = "Torpedo miss";
+    %tmp.246 = dup %tmp.244;
+    %tmp.247 = aputv %tmp.246 0 %tmp.245;
+    %tmp.249 = getv ? :unknowncolor;
+    %tmp.250 = dup %tmp.247;
+    %tmp.251 = aputv %tmp.250 1 %tmp.249;
+    %tmp.252 = dup %tmp.243;
+    %tmp.253 = aputv %tmp.252 5 %tmp.251;
+    %tmp.254 = newa 2;
+    %tmp.255 = "Phasers miss";
+    %tmp.256 = dup %tmp.254;
+    %tmp.257 = aputv %tmp.256 0 %tmp.255;
+    %tmp.259 = getv ? :unknowncolor;
+    %tmp.260 = dup %tmp.257;
+    %tmp.261 = aputv %tmp.260 1 %tmp.259;
+    %tmp.262 = dup %tmp.253;
+    %tmp.263 = aputv %tmp.262 6 %tmp.261;
+    %tmp.264 = newa 2;
+    %tmp.265 = "Rammed a Star";
+    %tmp.266 = dup %tmp.264;
+    %tmp.267 = aputv %tmp.266 0 %tmp.265;
+    %tmp.269 = getv ? :shipcolor1;
+    %tmp.270 = dup %tmp.267;
+    %tmp.271 = aputv %tmp.270 1 %tmp.269;
+    %tmp.272 = dup %tmp.263;
+    %tmp.273 = aputv %tmp.272 7 %tmp.271;
+    %tmp.274 = newa 2;
+    %tmp.275 = "Rammed Enemy";
+    %tmp.276 = dup %tmp.274;
+    %tmp.277 = aputv %tmp.276 0 %tmp.275;
+    %tmp.279 = getv ? :shipcolor1;
+    %tmp.280 = dup %tmp.277;
+    %tmp.281 = aputv %tmp.280 1 %tmp.279;
+    %tmp.282 = dup %tmp.273;
+    %tmp.283 = aputv %tmp.282 8 %tmp.281;
+    %tmp.284 = newa 2;
+    %tmp.285 = "Rammed Base";
+    %tmp.286 = dup %tmp.284;
+    %tmp.287 = aputv %tmp.286 0 %tmp.285;
+    %tmp.289 = getv ? :shipcolor1;
+    %tmp.290 = dup %tmp.287;
+    %tmp.291 = aputv %tmp.290 1 %tmp.289;
+    %tmp.292 = dup %tmp.283;
+    %tmp.293 = aputv %tmp.292 9 %tmp.291;
+    %tmp.294 = newa 2;
+    %tmp.295 = "Torpedo hit star";
+    %tmp.296 = dup %tmp.294;
+    %tmp.297 = aputv %tmp.296 0 %tmp.295;
+    %tmp.299 = getv ? :starcolor2;
+    %tmp.300 = dup %tmp.297;
+    %tmp.301 = aputv %tmp.300 1 %tmp.299;
+    %tmp.302 = dup %tmp.293;
+    %tmp.303 = aputv %tmp.302 10 %tmp.301;
+    %tmp.304 = newa 2;
+    %tmp.305 = "Phasers hit star";
+    %tmp.306 = dup %tmp.304;
+    %tmp.307 = aputv %tmp.306 0 %tmp.305;
+    %tmp.309 = getv ? :starcolor2;
+    %tmp.310 = dup %tmp.307;
+    %tmp.311 = aputv %tmp.310 1 %tmp.309;
+    %tmp.312 = dup %tmp.303;
+    %tmp.313 = aputv %tmp.312 11 %tmp.311;
+    %tmp.314 = newa 2;
+    %tmp.315 = "Torpedo hit base";
+    %tmp.316 = dup %tmp.314;
+    %tmp.317 = aputv %tmp.316 0 %tmp.315;
+    %tmp.319 = getv ? :basecolor2;
+    %tmp.320 = dup %tmp.317;
+    %tmp.321 = aputv %tmp.320 1 %tmp.319;
+    %tmp.322 = dup %tmp.313;
+    %tmp.323 = aputv %tmp.322 12 %tmp.321;
+    %tmp.324 = newa 2;
+    %tmp.325 = "Phasers hit base";
+    %tmp.326 = dup %tmp.324;
+    %tmp.327 = aputv %tmp.326 0 %tmp.325;
+    %tmp.329 = getv ? :basecolor2;
+    %tmp.330 = dup %tmp.327;
+    %tmp.331 = aputv %tmp.330 1 %tmp.329;
+    %tmp.332 = dup %tmp.323;
+    %tmp.333 = aputv %tmp.332 13 %tmp.331;
+    %tmp.334 = newa 2;
+    %tmp.335 = "Success!";
+    %tmp.336 = dup %tmp.334;
+    %tmp.337 = aputv %tmp.336 0 %tmp.335;
+    %tmp.339 = getv ? :wincolor;
+    %tmp.340 = dup %tmp.337;
+    %tmp.341 = aputv %tmp.340 1 %tmp.339;
+    %tmp.342 = dup %tmp.333;
+    %tmp.343 = aputv %tmp.342 14 %tmp.341;
+    %tmp.344 = newa 2;
+    %tmp.345 = "Resign";
+    %tmp.346 = dup %tmp.344;
+    %tmp.347 = aputv %tmp.346 0 %tmp.345;
+    %tmp.349 = getv ? :shieldcolor;
+    %tmp.350 = dup %tmp.347;
+    %tmp.351 = aputv %tmp.350 1 %tmp.349;
+    %tmp.352 = dup %tmp.343;
+    %tmp.353 = aputv %tmp.352 15 %tmp.351;
+    %tmp.354 = newa 2;
+    %tmp.355 = "Defeat!";
+    %tmp.356 = dup %tmp.354;
+    %tmp.357 = aputv %tmp.356 0 %tmp.355;
+    %tmp.359 = getv ? :losecolor;
+    %tmp.360 = dup %tmp.357;
+    %tmp.361 = aputv %tmp.360 1 %tmp.359;
+    %tmp.362 = dup %tmp.353;
+    %tmp.363 = aputv %tmp.362 16 %tmp.361;
+    putv self :messageColors %tmp.363;
+}

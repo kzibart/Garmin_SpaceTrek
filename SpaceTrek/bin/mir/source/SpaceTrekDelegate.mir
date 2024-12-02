@@ -1,0 +1,1818 @@
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc"; @line = 1; ]
+import Toybox.Lang;
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc"; @line = 2; ]
+import Toybox.WatchUi;
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc"; @line = 4; ]
+class SpaceTrekDelegate extends WatchUi.BehaviorDelegate{
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc"; @line = 4; ]
+    <init> {
+    }
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc"; @line = 4; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc"; @line = 6; ]
+    function initialize() as Void {
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_6_26_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 7 8 ]
+        %tmp.2 = getv ? :BehaviorDelegate;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_6_26_stop:
+    }
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc"; @line = 10; ]
+    function onMenu() as Boolean {
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_10_33_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 11 8 ]
+        %tmp.1 = getm $.Toybox.WatchUi;
+        %tmp.2 = getv function %tmp.1 :pushView;
+        %tmp.6 = getv ? :Rez;
+        %tmp.7 = getv %tmp.6 :Menus;
+        %tmp.8 = getv function ? %tmp.7 :MainMenu;
+        %tmp.3 = newc %tmp.8 ();
+        %tmp.12 = getv ? :SpaceTrekMenuDelegate;
+        %tmp.9 = newc %tmp.12 ();
+        %tmp.13 = getm $.Toybox.WatchUi;
+        %tmp.14 = getv %tmp.13 :SLIDE_UP;
+        invoke %tmp.1 %tmp.2(%tmp.3, %tmp.9, %tmp.14);
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 12 8 ]
+        %tmp.15 = true;
+        ret %tmp.15;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_10_33_stop:
+    }
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc"; @line = 15; ]
+    function onTap(clickEvent) as Boolean {
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_15_42_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 16 8 ]
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_15_42_start" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_15_42_stop" ]
+        %xy.1 = local;
+        %tmp.1 = lgetv %clickEvent;
+        %tmp.2 = getv function %tmp.1 :getCoordinates;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %xy.1 %tmp.3;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 18 8 ]
+        %tmp.5 = getv ? :state;
+        push %tmp.5;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_18_8_switchStmtBegin:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 19 12 ]
+        %tmp.6 = dup %tmp.5;
+        %tmp.7 = 0;
+        %tmp.8 = getv function %tmp.6 :equals;
+        %tmp.9 = invoke %tmp.6 %tmp.8 (%tmp.7);
+        bt %tmp.9 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_19_12_switchCase;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 57 12 ]
+        %tmp.10 = dup %tmp.5;
+        %tmp.11 = 1;
+        %tmp.12 = getv function %tmp.10 :equals;
+        %tmp.13 = invoke %tmp.10 %tmp.12 (%tmp.11);
+        bt %tmp.13 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_57_12_switchCase;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 239 12 ]
+        %tmp.14 = dup %tmp.5;
+        %tmp.15 = 3;
+        %tmp.16 = getv function %tmp.14 :equals;
+        %tmp.17 = invoke %tmp.14 %tmp.16 (%tmp.15);
+        bt %tmp.17 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_239_12_switchCase;
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_18_8_defaultCodeBegin;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_19_12_switchCase:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 21 16 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_21_16_if_stmt:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_21_20_begin:
+        %tmp.18 = self;
+        %tmp.19 = getv function %tmp.18 :inbox;
+        %tmp.21 = lgetv %xy.1;
+        %tmp.23 = getv ? :gridsizeXY;
+        %tmp.24 = 0;
+        %tmp.25 = agetv %tmp.23 %tmp.24;
+        %tmp.27 = getv ? :buttonWH;
+        %tmp.28 = invoke %tmp.18 %tmp.19(%tmp.21, %tmp.25, %tmp.27);
+        %tmp.29 = dup %tmp.28;
+        bf %tmp.29 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_21_57_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_21_57_true:
+        %tmp.31 = getv ? :grid;
+        %tmp.33 = getv ? :mingrid;
+        %tmp.34 = gt %tmp.31 %tmp.33;
+        %tmp.35 = and %tmp.28 %tmp.34;
+        push %tmp.35;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_21_57_end:
+        %tmp.36 = phi [%tmp.29 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_21_20_begin] [%tmp.35 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_21_57_true] [%tmp.36 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_21_57_end];
+        bf %tmp.36 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_21_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_21_16_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_21_73_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 22 20 ]
+        %tmp.39 = getv ? :grid;
+        %tmp.40 = sub %tmp.39 1;
+        putv self :grid dup %tmp.40;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 23 20 ]
+        %tmp.41 = self;
+        %tmp.42 = getv function %tmp.41 :savegame;
+        invoke %tmp.41 %tmp.42();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 24 20 ]
+        %tmp.43 = getm $.Toybox.WatchUi;
+        %tmp.44 = getv function %tmp.43 :requestUpdate;
+        invoke %tmp.43 %tmp.44();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 25 20 ]
+        %tmp.45 = true;
+        ret %tmp.45;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_21_73_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_21_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_21_16_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 27 16 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_27_16_if_stmt:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_27_20_begin:
+        %tmp.46 = self;
+        %tmp.47 = getv function %tmp.46 :inbox;
+        %tmp.49 = lgetv %xy.1;
+        %tmp.51 = getv ? :gridsizeXY;
+        %tmp.52 = 2;
+        %tmp.53 = agetv %tmp.51 %tmp.52;
+        %tmp.55 = getv ? :buttonWH;
+        %tmp.56 = invoke %tmp.46 %tmp.47(%tmp.49, %tmp.53, %tmp.55);
+        %tmp.57 = dup %tmp.56;
+        bf %tmp.57 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_27_57_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_27_57_true:
+        %tmp.59 = getv ? :grid;
+        %tmp.61 = getv ? :maxgrid;
+        %tmp.62 = lt %tmp.59 %tmp.61;
+        %tmp.63 = and %tmp.56 %tmp.62;
+        push %tmp.63;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_27_57_end:
+        %tmp.64 = phi [%tmp.57 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_27_20_begin] [%tmp.63 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_27_57_true] [%tmp.64 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_27_57_end];
+        bf %tmp.64 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_27_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_27_16_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_27_73_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 28 20 ]
+        %tmp.67 = getv ? :grid;
+        %tmp.68 = add %tmp.67 1;
+        putv self :grid dup %tmp.68;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 29 20 ]
+        %tmp.69 = self;
+        %tmp.70 = getv function %tmp.69 :savegame;
+        invoke %tmp.69 %tmp.70();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 30 20 ]
+        %tmp.71 = getm $.Toybox.WatchUi;
+        %tmp.72 = getv function %tmp.71 :requestUpdate;
+        invoke %tmp.71 %tmp.72();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 31 20 ]
+        %tmp.73 = true;
+        ret %tmp.73;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_27_73_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_27_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_27_16_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 33 16 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_33_16_if_stmt:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_33_20_begin:
+        %tmp.74 = self;
+        %tmp.75 = getv function %tmp.74 :inbox;
+        %tmp.77 = lgetv %xy.1;
+        %tmp.79 = getv ? :difficultyXY;
+        %tmp.80 = 0;
+        %tmp.81 = agetv %tmp.79 %tmp.80;
+        %tmp.83 = getv ? :buttonWH;
+        %tmp.84 = invoke %tmp.74 %tmp.75(%tmp.77, %tmp.81, %tmp.83);
+        %tmp.85 = dup %tmp.84;
+        bf %tmp.85 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_33_59_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_33_59_true:
+        %tmp.87 = getv ? :difficulty;
+        %tmp.89 = getv ? :mindifficulty;
+        %tmp.90 = gt %tmp.87 %tmp.89;
+        %tmp.91 = and %tmp.84 %tmp.90;
+        push %tmp.91;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_33_59_end:
+        %tmp.92 = phi [%tmp.85 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_33_20_begin] [%tmp.91 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_33_59_true] [%tmp.92 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_33_59_end];
+        bf %tmp.92 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_33_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_33_16_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_33_87_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 34 20 ]
+        %tmp.95 = getv ? :difficulty;
+        %tmp.96 = sub %tmp.95 1;
+        putv self :difficulty dup %tmp.96;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 35 20 ]
+        %tmp.97 = self;
+        %tmp.98 = getv function %tmp.97 :savegame;
+        invoke %tmp.97 %tmp.98();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 36 20 ]
+        %tmp.99 = getm $.Toybox.WatchUi;
+        %tmp.100 = getv function %tmp.99 :requestUpdate;
+        invoke %tmp.99 %tmp.100();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 37 20 ]
+        %tmp.101 = true;
+        ret %tmp.101;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_33_87_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_33_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_33_16_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 39 16 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_39_16_if_stmt:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_39_20_begin:
+        %tmp.102 = self;
+        %tmp.103 = getv function %tmp.102 :inbox;
+        %tmp.105 = lgetv %xy.1;
+        %tmp.107 = getv ? :difficultyXY;
+        %tmp.108 = 2;
+        %tmp.109 = agetv %tmp.107 %tmp.108;
+        %tmp.111 = getv ? :buttonWH;
+        %tmp.112 = invoke %tmp.102 %tmp.103(%tmp.105, %tmp.109, %tmp.111);
+        %tmp.113 = dup %tmp.112;
+        bf %tmp.113 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_39_59_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_39_59_true:
+        %tmp.115 = getv ? :difficulty;
+        %tmp.117 = getv ? :maxdifficulty;
+        %tmp.118 = lt %tmp.115 %tmp.117;
+        %tmp.119 = and %tmp.112 %tmp.118;
+        push %tmp.119;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_39_59_end:
+        %tmp.120 = phi [%tmp.113 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_39_20_begin] [%tmp.119 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_39_59_true] [%tmp.120 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_39_59_end];
+        bf %tmp.120 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_39_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_39_16_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_39_87_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 40 20 ]
+        %tmp.123 = getv ? :difficulty;
+        %tmp.124 = add %tmp.123 1;
+        putv self :difficulty dup %tmp.124;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 41 20 ]
+        %tmp.125 = self;
+        %tmp.126 = getv function %tmp.125 :savegame;
+        invoke %tmp.125 %tmp.126();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 42 20 ]
+        %tmp.127 = getm $.Toybox.WatchUi;
+        %tmp.128 = getv function %tmp.127 :requestUpdate;
+        invoke %tmp.127 %tmp.128();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 43 20 ]
+        %tmp.129 = true;
+        ret %tmp.129;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_39_87_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_39_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_39_16_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 45 16 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_45_16_if_stmt:
+        %tmp.130 = self;
+        %tmp.131 = getv function %tmp.130 :inbox;
+        %tmp.133 = lgetv %xy.1;
+        %tmp.135 = getv ? :autoshieldsXY;
+        %tmp.136 = 2;
+        %tmp.137 = agetv %tmp.135 %tmp.136;
+        %tmp.139 = getv ? :buttonWH;
+        %tmp.140 = invoke %tmp.130 %tmp.131(%tmp.133, %tmp.137, %tmp.139);
+        bf %tmp.140 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_45_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_45_16_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_45_57_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 46 20 ]
+        %tmp.142 = getv ? :autoshields;
+        %tmp.143 = not %tmp.142;
+        putv self :autoshields %tmp.143;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 47 20 ]
+        %tmp.144 = self;
+        %tmp.145 = getv function %tmp.144 :savegame;
+        invoke %tmp.144 %tmp.145();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 48 20 ]
+        %tmp.146 = getm $.Toybox.WatchUi;
+        %tmp.147 = getv function %tmp.146 :requestUpdate;
+        invoke %tmp.146 %tmp.147();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 49 20 ]
+        %tmp.148 = true;
+        ret %tmp.148;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_45_57_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_45_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_45_16_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 51 16 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_51_16_if_stmt:
+        %tmp.149 = self;
+        %tmp.150 = getv function %tmp.149 :inbox;
+        %tmp.152 = lgetv %xy.1;
+        %tmp.154 = getv ? :newgameXY;
+        %tmp.156 = getv ? :newgameWH;
+        %tmp.157 = invoke %tmp.149 %tmp.150(%tmp.152, %tmp.154, %tmp.156);
+        bf %tmp.157 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_51_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_51_16_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_51_51_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 52 20 ]
+        %tmp.158 = self;
+        %tmp.159 = getv function %tmp.158 :newgame2;
+        invoke %tmp.158 %tmp.159();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 53 20 ]
+        %tmp.160 = getm $.Toybox.WatchUi;
+        %tmp.161 = getv function %tmp.160 :requestUpdate;
+        invoke %tmp.160 %tmp.161();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 54 20 ]
+        %tmp.162 = true;
+        ret %tmp.162;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_51_51_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_51_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_51_16_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 56 16 ]
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_18_8_switchStmtEnd;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_57_12_switchCase:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 59 16 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_59_16_if_stmt:
+        %tmp.163 = self;
+        %tmp.164 = getv function %tmp.163 :inbox;
+        %tmp.166 = lgetv %xy.1;
+        %tmp.168 = getv ? :logXY;
+        %tmp.170 = getv ? :logWH;
+        %tmp.171 = invoke %tmp.163 %tmp.164(%tmp.166, %tmp.168, %tmp.170);
+        bf %tmp.171 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_59_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_59_16_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_59_43_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 60 20 ]
+        %tmp.172 = self;
+        %tmp.173 = getv function %tmp.172 :showLogs;
+        invoke %tmp.172 %tmp.173();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 61 20 ]
+        %tmp.174 = getm $.Toybox.WatchUi;
+        %tmp.175 = getv function %tmp.174 :requestUpdate;
+        invoke %tmp.174 %tmp.175();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 62 20 ]
+        %tmp.176 = true;
+        ret %tmp.176;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_59_43_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_59_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_59_16_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 65 16 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_65_16_if_stmt:
+        %tmp.177 = self;
+        %tmp.178 = getv function %tmp.177 :inbox;
+        %tmp.180 = lgetv %xy.1;
+        %tmp.182 = getv ? :smallXY;
+        %tmp.184 = getv ? :smallWH;
+        %tmp.185 = invoke %tmp.177 %tmp.178(%tmp.180, %tmp.182, %tmp.184);
+        bf %tmp.185 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_65_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_65_16_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_65_47_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 66 20 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_66_20_if_stmt:
+        %tmp.187 = getv ? :disp;
+        %tmp.188 = getv function %tmp.187 :equals;
+        %tmp.189 = "S";
+        %tmp.190 = invoke %tmp.187 %tmp.188(%tmp.189);
+        bf %tmp.190 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_66_20_if_false;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_66_20_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_66_42_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 66 44 ]
+        %tmp.191 = "Q";
+        putv self :disp %tmp.191;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_66_42_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_66_20_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_66_20_if_false:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_67_25_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 67 27 ]
+        %tmp.192 = "S";
+        putv self :disp %tmp.192;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_67_25_stop:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_66_20_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 68 20 ]
+        %tmp.193 = null;
+        putv self :action %tmp.193;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 69 20 ]
+        %tmp.194 = self;
+        %tmp.195 = getv function %tmp.194 :savegame;
+        invoke %tmp.194 %tmp.195();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 70 20 ]
+        %tmp.196 = getm $.Toybox.WatchUi;
+        %tmp.197 = getv function %tmp.196 :requestUpdate;
+        invoke %tmp.196 %tmp.197();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 71 20 ]
+        %tmp.198 = true;
+        ret %tmp.198;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_65_47_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_65_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_65_16_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 74 16 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_74_16_if_stmt:
+        %tmp.199 = self;
+        %tmp.200 = getv function %tmp.199 :inbox;
+        %tmp.202 = lgetv %xy.1;
+        %tmp.204 = getv ? :energyXY;
+        %tmp.205 = newa 2;
+        %tmp.207 = getv ? :energyWH;
+        %tmp.208 = 0;
+        %tmp.209 = agetv %tmp.207 %tmp.208;
+        %tmp.210 = dup %tmp.205;
+        %tmp.211 = aputv %tmp.210 0 %tmp.209;
+        %tmp.213 = getv ? :energyWH;
+        %tmp.214 = 1;
+        %tmp.215 = agetv %tmp.213 %tmp.214;
+        %tmp.217 = getv ? :energyWH;
+        %tmp.218 = 0;
+        %tmp.219 = agetv %tmp.217 %tmp.218;
+        %tmp.220 = add %tmp.215 %tmp.219;
+        %tmp.221 = dup %tmp.211;
+        %tmp.222 = aputv %tmp.221 1 %tmp.220;
+        %tmp.223 = invoke %tmp.199 %tmp.200(%tmp.202, %tmp.204, %tmp.222);
+        bf %tmp.223 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_74_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_74_16_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_74_78_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 75 20 ]
+        %tmp.224 = "S";
+        putv self :action %tmp.224;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 76 20 ]
+        %tmp.225 = getm $.Toybox.WatchUi;
+        %tmp.226 = getv function %tmp.225 :requestUpdate;
+        invoke %tmp.225 %tmp.226();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 77 20 ]
+        %tmp.227 = true;
+        ret %tmp.227;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_74_78_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_74_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_74_16_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 80 16 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_80_16_if_stmt:
+        %tmp.228 = self;
+        %tmp.229 = getv function %tmp.228 :inbox;
+        %tmp.231 = lgetv %xy.1;
+        %tmp.233 = getv ? :infoXY;
+        %tmp.235 = getv ? :infoWH;
+        %tmp.236 = invoke %tmp.228 %tmp.229(%tmp.231, %tmp.233, %tmp.235);
+        bf %tmp.236 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_80_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_80_16_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_80_45_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 81 20 ]
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_80_45_start" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_80_45_stop" ]
+        %leftbutton.2 = local;
+        %tmp.237 = self;
+        %tmp.238 = getv function %tmp.237 :inbox;
+        %tmp.240 = lgetv %xy.1;
+        %tmp.242 = getv ? :infoXY;
+        %tmp.243 = newa 2;
+        %tmp.245 = getv ? :infoWH;
+        %tmp.246 = 0;
+        %tmp.247 = agetv %tmp.245 %tmp.246;
+        %tmp.248 = 2;
+        %tmp.249 = div %tmp.247 %tmp.248;
+        %tmp.250 = dup %tmp.243;
+        %tmp.251 = aputv %tmp.250 0 %tmp.249;
+        %tmp.253 = getv ? :infoWH;
+        %tmp.254 = 1;
+        %tmp.255 = agetv %tmp.253 %tmp.254;
+        %tmp.256 = dup %tmp.251;
+        %tmp.257 = aputv %tmp.256 1 %tmp.255;
+        %tmp.258 = invoke %tmp.237 %tmp.238(%tmp.240, %tmp.242, %tmp.257);
+        lputv %leftbutton.2 %tmp.258;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 82 20 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_82_20_if_stmt:
+        %tmp.260 = getv ? :action;
+        %tmp.261 = null;
+        %tmp.262 = eq %tmp.260 %tmp.261;
+        bf %tmp.262 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_82_20_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_82_20_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_82_40_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 83 24 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_24_if_stmt:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_28_begin:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_28_begin:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_28_begin:
+        %tmp.264 = lgetv %leftbutton.2;
+        %tmp.265 = dup %tmp.264;
+        bf %tmp.265 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_43_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_43_true:
+        %tmp.267 = getv ? :health;
+        %tmp.268 = 0;
+        %tmp.269 = agetv %tmp.267 %tmp.268;
+        %tmp.271 = getv ? :maxhealth;
+        %tmp.272 = lt %tmp.269 %tmp.271;
+        %tmp.273 = and %tmp.264 %tmp.272;
+        push %tmp.273;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_43_end:
+        %tmp.274 = phi [%tmp.265 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_28_begin] [%tmp.273 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_43_true] [%tmp.274 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_43_end];
+        %tmp.275 = dup %tmp.274;
+        bt %tmp.275 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_68_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_68_false:
+        %tmp.277 = getv ? :health;
+        %tmp.278 = 1;
+        %tmp.279 = agetv %tmp.277 %tmp.278;
+        %tmp.281 = getv ? :maxhealth;
+        %tmp.282 = lt %tmp.279 %tmp.281;
+        %tmp.283 = or %tmp.274 %tmp.282;
+        push %tmp.283;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_68_end:
+        %tmp.284 = phi [%tmp.275 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_28_begin] [%tmp.283 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_68_false] [%tmp.284 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_68_end];
+        %tmp.285 = dup %tmp.284;
+        bt %tmp.285 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_93_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_93_false:
+        %tmp.287 = getv ? :health;
+        %tmp.288 = 2;
+        %tmp.289 = agetv %tmp.287 %tmp.288;
+        %tmp.291 = getv ? :maxhealth;
+        %tmp.292 = lt %tmp.289 %tmp.291;
+        %tmp.293 = or %tmp.284 %tmp.292;
+        push %tmp.293;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_93_end:
+        %tmp.294 = phi [%tmp.285 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_28_begin] [%tmp.293 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_93_false] [%tmp.294 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_93_end];
+        bf %tmp.294 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_24_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_116_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 85 28 ]
+        %tmp.295 = "R";
+        putv self :action %tmp.295;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 86 28 ]
+        %tmp.296 = getm $.Toybox.WatchUi;
+        %tmp.297 = getv function %tmp.296 :requestUpdate;
+        invoke %tmp.296 %tmp.297();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 87 28 ]
+        %tmp.298 = true;
+        ret %tmp.298;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_116_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_83_24_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 89 24 ]
+        %tmp.299 = false;
+        ret %tmp.299;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_82_40_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_82_20_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_82_20_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 91 20 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_91_20_if_stmt:
+        %tmp.301 = getv ? :action;
+        %tmp.302 = getv function %tmp.301 :equals;
+        %tmp.303 = "I";
+        %tmp.304 = invoke %tmp.301 %tmp.302(%tmp.303);
+        bf %tmp.304 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_91_20_if_false;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_91_20_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_91_44_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 93 24 ]
+        %tmp.305 = self;
+        %tmp.306 = getv function %tmp.305 :impulse;
+        %tmp.308 = getv ? :actionXY;
+        %tmp.309 = invoke %tmp.305 %tmp.306(%tmp.308);
+        ret %tmp.309;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_91_44_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_91_20_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_91_20_if_false:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 94 27 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_94_27_if_stmt:
+        %tmp.311 = getv ? :action;
+        %tmp.312 = getv function %tmp.311 :equals;
+        %tmp.313 = "W";
+        %tmp.314 = invoke %tmp.311 %tmp.312(%tmp.313);
+        bf %tmp.314 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_94_27_if_false;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_94_27_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_94_51_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 96 24 ]
+        %tmp.315 = self;
+        %tmp.316 = getv function %tmp.315 :warp;
+        %tmp.318 = getv ? :actionXY;
+        %tmp.319 = invoke %tmp.315 %tmp.316(%tmp.318);
+        ret %tmp.319;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_94_51_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_94_27_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_94_27_if_false:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 97 27 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_97_27_if_stmt:
+        %tmp.321 = getv ? :action;
+        %tmp.322 = getv function %tmp.321 :equals;
+        %tmp.323 = "A";
+        %tmp.324 = invoke %tmp.321 %tmp.322(%tmp.323);
+        bf %tmp.324 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_97_27_if_false;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_97_27_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_97_51_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 101 24 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_101_24_if_stmt:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_101_28_begin:
+        %tmp.326 = lgetv %leftbutton.2;
+        %tmp.327 = dup %tmp.326;
+        bf %tmp.327 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_101_43_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_101_43_true:
+        %tmp.329 = getv ? :energy;
+        %tmp.331 = getv ? :shields;
+        %tmp.332 = sub %tmp.329 %tmp.331;
+        %tmp.333 = 0;
+        %tmp.334 = gt %tmp.332 %tmp.333;
+        %tmp.335 = and %tmp.326 %tmp.334;
+        push %tmp.335;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_101_43_end:
+        %tmp.336 = phi [%tmp.327 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_101_28_begin] [%tmp.335 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_101_43_true] [%tmp.336 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_101_43_end];
+        bf %tmp.336 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_101_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_101_24_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_101_63_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 102 28 ]
+        %tmp.337 = "P";
+        putv self :action %tmp.337;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 103 28 ]
+        %tmp.338 = getm $.Toybox.WatchUi;
+        %tmp.339 = getv function %tmp.338 :requestUpdate;
+        invoke %tmp.338 %tmp.339();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 104 28 ]
+        %tmp.340 = true;
+        ret %tmp.340;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_101_63_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_101_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_101_24_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 106 24 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_106_24_if_stmt:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_106_28_begin:
+        %tmp.342 = lgetv %leftbutton.2;
+        %tmp.343 = not %tmp.342;
+        %tmp.344 = dup %tmp.343;
+        bf %tmp.344 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_106_44_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_106_44_true:
+        %tmp.346 = getv ? :torps;
+        %tmp.347 = 0;
+        %tmp.348 = gt %tmp.346 %tmp.347;
+        %tmp.349 = and %tmp.343 %tmp.348;
+        push %tmp.349;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_106_44_end:
+        %tmp.350 = phi [%tmp.344 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_106_28_begin] [%tmp.349 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_106_44_true] [%tmp.350 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_106_44_end];
+        bf %tmp.350 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_106_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_106_24_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_106_55_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 107 28 ]
+        %tmp.351 = "T";
+        putv self :action %tmp.351;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 108 28 ]
+        %tmp.352 = getm $.Toybox.WatchUi;
+        %tmp.353 = getv function %tmp.352 :requestUpdate;
+        invoke %tmp.352 %tmp.353();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 109 28 ]
+        %tmp.354 = true;
+        ret %tmp.354;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_106_55_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_106_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_106_24_if_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_97_51_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_97_27_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_97_27_if_false:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 111 27 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_111_27_if_stmt:
+        %tmp.356 = getv ? :action;
+        %tmp.357 = getv function %tmp.356 :equals;
+        %tmp.358 = "P";
+        %tmp.359 = invoke %tmp.356 %tmp.357(%tmp.358);
+        bf %tmp.359 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_111_27_if_false;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_111_27_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_111_51_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 115 24 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_115_24_if_stmt:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_115_28_begin:
+        %tmp.361 = lgetv %leftbutton.2;
+        %tmp.362 = dup %tmp.361;
+        bf %tmp.362 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_115_43_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_115_43_true:
+        %tmp.364 = getv ? :energy;
+        %tmp.366 = getv ? :shields;
+        %tmp.367 = sub %tmp.364 %tmp.366;
+        %tmp.368 = 0;
+        %tmp.369 = gt %tmp.367 %tmp.368;
+        %tmp.370 = and %tmp.361 %tmp.369;
+        push %tmp.370;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_115_43_end:
+        %tmp.371 = phi [%tmp.362 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_115_28_begin] [%tmp.370 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_115_43_true] [%tmp.371 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_115_43_end];
+        bf %tmp.371 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_115_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_115_24_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_115_63_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 116 28 ]
+        %tmp.372 = 1;
+        putv self :fire %tmp.372;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 117 28 ]
+        %tmp.373 = 2;
+        putv self :state %tmp.373;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 118 28 ]
+        %tmp.374 = self;
+        %tmp.375 = getv function %tmp.374 :savegame;
+        invoke %tmp.374 %tmp.375();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 119 28 ]
+        %tmp.376 = getm $.Toybox.WatchUi;
+        %tmp.377 = getv function %tmp.376 :requestUpdate;
+        invoke %tmp.376 %tmp.377();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 120 28 ]
+        %tmp.378 = true;
+        ret %tmp.378;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_115_63_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_115_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_115_24_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 122 24 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_122_24_if_stmt:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_122_28_begin:
+        %tmp.380 = lgetv %leftbutton.2;
+        %tmp.381 = not %tmp.380;
+        %tmp.382 = dup %tmp.381;
+        bf %tmp.382 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_122_44_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_122_44_true:
+        %tmp.384 = getv ? :energy;
+        %tmp.386 = getv ? :shields;
+        %tmp.387 = sub %tmp.384 %tmp.386;
+        %tmp.389 = getv ? :p2energy;
+        %tmp.390 = gte %tmp.387 %tmp.389;
+        %tmp.391 = and %tmp.381 %tmp.390;
+        push %tmp.391;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_122_44_end:
+        %tmp.392 = phi [%tmp.382 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_122_28_begin] [%tmp.391 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_122_44_true] [%tmp.392 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_122_44_end];
+        bf %tmp.392 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_122_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_122_24_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_122_72_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 123 28 ]
+        %tmp.393 = 2;
+        putv self :fire %tmp.393;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 124 28 ]
+        %tmp.394 = 2;
+        putv self :state %tmp.394;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 125 28 ]
+        %tmp.395 = self;
+        %tmp.396 = getv function %tmp.395 :savegame;
+        invoke %tmp.395 %tmp.396();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 126 28 ]
+        %tmp.397 = getm $.Toybox.WatchUi;
+        %tmp.398 = getv function %tmp.397 :requestUpdate;
+        invoke %tmp.397 %tmp.398();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 127 28 ]
+        %tmp.399 = true;
+        ret %tmp.399;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_122_72_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_122_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_122_24_if_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_111_51_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_111_27_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_111_27_if_false:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 129 27 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_129_27_if_stmt:
+        %tmp.401 = getv ? :action;
+        %tmp.402 = getv function %tmp.401 :equals;
+        %tmp.403 = "T";
+        %tmp.404 = invoke %tmp.401 %tmp.402(%tmp.403);
+        bf %tmp.404 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_129_27_if_false;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_129_27_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_129_51_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 133 24 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_133_24_if_stmt:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_133_28_begin:
+        %tmp.406 = lgetv %leftbutton.2;
+        %tmp.407 = dup %tmp.406;
+        bf %tmp.407 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_133_43_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_133_43_true:
+        %tmp.409 = getv ? :torps;
+        %tmp.410 = 0;
+        %tmp.411 = gt %tmp.409 %tmp.410;
+        %tmp.412 = and %tmp.406 %tmp.411;
+        push %tmp.412;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_133_43_end:
+        %tmp.413 = phi [%tmp.407 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_133_28_begin] [%tmp.412 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_133_43_true] [%tmp.413 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_133_43_end];
+        bf %tmp.413 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_133_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_133_24_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_133_54_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 134 28 ]
+        %tmp.414 = 1;
+        putv self :fire %tmp.414;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 135 28 ]
+        %tmp.415 = 2;
+        putv self :state %tmp.415;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 136 28 ]
+        %tmp.416 = self;
+        %tmp.417 = getv function %tmp.416 :savegame;
+        invoke %tmp.416 %tmp.417();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 137 28 ]
+        %tmp.418 = getm $.Toybox.WatchUi;
+        %tmp.419 = getv function %tmp.418 :requestUpdate;
+        invoke %tmp.418 %tmp.419();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 138 28 ]
+        %tmp.420 = true;
+        ret %tmp.420;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_133_54_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_133_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_133_24_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 140 24 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_140_24_if_stmt:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_140_28_begin:
+        %tmp.422 = lgetv %leftbutton.2;
+        %tmp.423 = not %tmp.422;
+        %tmp.424 = dup %tmp.423;
+        bf %tmp.424 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_140_44_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_140_44_true:
+        %tmp.426 = getv ? :torps;
+        %tmp.427 = 1;
+        %tmp.428 = gt %tmp.426 %tmp.427;
+        %tmp.429 = and %tmp.423 %tmp.428;
+        push %tmp.429;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_140_44_end:
+        %tmp.430 = phi [%tmp.424 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_140_28_begin] [%tmp.429 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_140_44_true] [%tmp.430 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_140_44_end];
+        bf %tmp.430 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_140_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_140_24_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_140_55_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 141 28 ]
+        %tmp.431 = 2;
+        putv self :fire %tmp.431;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 142 28 ]
+        %tmp.432 = 2;
+        putv self :state %tmp.432;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 143 28 ]
+        %tmp.433 = self;
+        %tmp.434 = getv function %tmp.433 :savegame;
+        invoke %tmp.433 %tmp.434();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 144 28 ]
+        %tmp.435 = getm $.Toybox.WatchUi;
+        %tmp.436 = getv function %tmp.435 :requestUpdate;
+        invoke %tmp.435 %tmp.436();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 145 28 ]
+        %tmp.437 = true;
+        ret %tmp.437;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_140_55_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_140_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_140_24_if_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_129_51_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_129_27_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_129_27_if_false:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 147 27 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_147_27_if_stmt:
+        %tmp.439 = getv ? :action;
+        %tmp.440 = getv function %tmp.439 :equals;
+        %tmp.441 = "S";
+        %tmp.442 = invoke %tmp.439 %tmp.440(%tmp.441);
+        bf %tmp.442 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_147_27_if_false;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_147_27_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_147_51_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 150 24 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_150_24_if_stmt:
+        %tmp.444 = lgetv %leftbutton.2;
+        bf %tmp.444 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_150_24_if_false;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_150_24_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_150_40_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 151 28 ]
+        %tmp.445 = getv self :shields;
+        %tmp.447 = getv ? :energy;
+        %tmp.448 = 5;
+        %tmp.449 = mul %tmp.447 %tmp.448;
+        %tmp.450 = 100;
+        %tmp.451 = div %tmp.449 %tmp.450;
+        %tmp.452 = sub %tmp.445 %tmp.451;
+        putv self :shields dup %tmp.452;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_150_40_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_150_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_150_24_if_false:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_152_31_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 153 28 ]
+        %tmp.453 = getv self :shields;
+        %tmp.455 = getv ? :energy;
+        %tmp.456 = 5;
+        %tmp.457 = mul %tmp.455 %tmp.456;
+        %tmp.458 = 100;
+        %tmp.459 = div %tmp.457 %tmp.458;
+        %tmp.460 = add %tmp.453 %tmp.459;
+        putv self :shields dup %tmp.460;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_152_31_stop:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_150_24_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 155 24 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_155_24_if_stmt:
+        %tmp.462 = getv ? :shields;
+        %tmp.464 = getv ? :energy;
+        %tmp.465 = gt %tmp.462 %tmp.464;
+        bf %tmp.465 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_155_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_155_24_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_155_46_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 155 48 ]
+        %tmp.467 = getv ? :energy;
+        putv self :shields %tmp.467;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_155_46_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_155_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_155_24_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 156 24 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_156_24_if_stmt:
+        %tmp.469 = getv ? :shields;
+        %tmp.470 = 0;
+        %tmp.471 = lt %tmp.469 %tmp.470;
+        bf %tmp.471 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_156_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_156_24_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_156_41_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 156 43 ]
+        %tmp.472 = 0;
+        putv self :shields %tmp.472;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_156_41_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_156_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_156_24_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 157 24 ]
+        %tmp.473 = self;
+        %tmp.474 = getv function %tmp.473 :savegame;
+        invoke %tmp.473 %tmp.474();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 158 24 ]
+        %tmp.475 = getm $.Toybox.WatchUi;
+        %tmp.476 = getv function %tmp.475 :requestUpdate;
+        invoke %tmp.475 %tmp.476();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 159 24 ]
+        %tmp.477 = true;
+        ret %tmp.477;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_147_51_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_147_27_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_147_27_if_false:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 160 27 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_160_27_if_stmt:
+        %tmp.479 = getv ? :action;
+        %tmp.480 = getv function %tmp.479 :equals;
+        %tmp.481 = "D";
+        %tmp.482 = invoke %tmp.479 %tmp.480(%tmp.481);
+        bf %tmp.482 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_160_27_if_false;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_160_27_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_160_51_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 162 24 ]
+        %tmp.485 = getv ? :docks;
+        %tmp.486 = add %tmp.485 1;
+        putv self :docks dup %tmp.486;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 163 24 ]
+        %tmp.488 = getv ? :maxenergy;
+        putv self :energy %tmp.488;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 164 24 ]
+        %tmp.489 = 10;
+        putv self :torps %tmp.489;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 165 24 ]
+        %tmp.491 = getv ? :maxhealth;
+        %tmp.493 = getv ? :health;
+        %tmp.494 = 0;
+        %tmp.495 = agetv %tmp.493 %tmp.494;
+        %tmp.496 = sub %tmp.491 %tmp.495;
+        %tmp.498 = getv ? :maxhealth;
+        %tmp.499 = add %tmp.496 %tmp.498;
+        %tmp.501 = getv ? :health;
+        %tmp.502 = 1;
+        %tmp.503 = agetv %tmp.501 %tmp.502;
+        %tmp.504 = sub %tmp.499 %tmp.503;
+        %tmp.506 = getv ? :maxhealth;
+        %tmp.507 = add %tmp.504 %tmp.506;
+        %tmp.509 = getv ? :health;
+        %tmp.510 = 2;
+        %tmp.511 = agetv %tmp.509 %tmp.510;
+        %tmp.512 = sub %tmp.507 %tmp.511;
+        %tmp.513 = 100;
+        %tmp.514 = add %tmp.512 %tmp.513;
+        putv self :tmp %tmp.514;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 166 24 ]
+        %tmp.516 = getv ? :tmp;
+        %tmp.517 = 100;
+        %tmp.518 = div %tmp.516 %tmp.517;
+        putv self :tmp %tmp.518;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 167 24 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_167_24_if_stmt:
+        %tmp.520 = getv ? :tmp;
+        %tmp.521 = 1;
+        %tmp.522 = eq %tmp.520 %tmp.521;
+        bf %tmp.522 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_167_24_if_false;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_167_24_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_167_38_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 168 28 ]
+        %tmp.523 = "Dock 1 day";
+        putv self :msg %tmp.523;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_167_38_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_167_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_167_24_if_false:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_169_31_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 170 28 ]
+        %tmp.524 = "Dock ";
+        %tmp.526 = getv ? :tmp;
+        %tmp.527 = add %tmp.524 %tmp.526;
+        %tmp.528 = " days";
+        %tmp.529 = add %tmp.527 %tmp.528;
+        putv self :msg %tmp.529;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_169_31_stop:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_167_24_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 172 24 ]
+        %tmp.530 = self;
+        %tmp.531 = getv function %tmp.530 :addlog;
+        %tmp.533 = getv ? :msg;
+        invoke %tmp.530 %tmp.531(%tmp.533);
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 173 24 ]
+        %tmp.534 = getv self :days;
+        %tmp.536 = getv ? :tmp;
+        %tmp.537 = sub %tmp.534 %tmp.536;
+        putv self :days dup %tmp.537;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 174 24 ]
+        %tmp.538 = newa 3;
+        %tmp.540 = getv ? :maxhealth;
+        %tmp.541 = dup %tmp.538;
+        %tmp.542 = aputv %tmp.541 0 %tmp.540;
+        %tmp.544 = getv ? :maxhealth;
+        %tmp.545 = dup %tmp.542;
+        %tmp.546 = aputv %tmp.545 1 %tmp.544;
+        %tmp.548 = getv ? :maxhealth;
+        %tmp.549 = dup %tmp.546;
+        %tmp.550 = aputv %tmp.549 2 %tmp.548;
+        putv self :health %tmp.550;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 175 24 ]
+        %tmp.551 = null;
+        putv self :action %tmp.551;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 176 24 ]
+        %tmp.552 = self;
+        %tmp.553 = getv function %tmp.552 :savegame;
+        invoke %tmp.552 %tmp.553();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 177 24 ]
+        %tmp.554 = getm $.Toybox.WatchUi;
+        %tmp.555 = getv function %tmp.554 :requestUpdate;
+        invoke %tmp.554 %tmp.555();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 178 24 ]
+        %tmp.556 = true;
+        ret %tmp.556;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_160_51_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_160_27_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_160_27_if_false:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 179 27 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_179_27_if_stmt:
+        %tmp.558 = getv ? :action;
+        %tmp.559 = getv function %tmp.558 :equals;
+        %tmp.560 = "R";
+        %tmp.561 = invoke %tmp.558 %tmp.559(%tmp.560);
+        bf %tmp.561 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_179_27_if_false;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_179_27_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_179_51_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 181 24 ]
+        %tmp.562 = self;
+        %tmp.563 = getv function %tmp.562 :repairship;
+        invoke %tmp.562 %tmp.563();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 182 24 ]
+        %tmp.564 = null;
+        putv self :action %tmp.564;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 183 24 ]
+        %tmp.565 = self;
+        %tmp.566 = getv function %tmp.565 :savegame;
+        invoke %tmp.565 %tmp.566();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 184 24 ]
+        %tmp.567 = getm $.Toybox.WatchUi;
+        %tmp.568 = getv function %tmp.567 :requestUpdate;
+        invoke %tmp.567 %tmp.568();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 185 24 ]
+        %tmp.569 = true;
+        ret %tmp.569;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_179_51_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_179_27_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_179_27_if_false:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 186 27 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_186_27_if_stmt:
+        %tmp.571 = getv ? :action;
+        %tmp.572 = getv function %tmp.571 :equals;
+        %tmp.573 = "C";
+        %tmp.574 = invoke %tmp.571 %tmp.572(%tmp.573);
+        bf %tmp.574 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_186_27_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_186_27_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_186_51_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 188 24 ]
+        %tmp.575 = 3;
+        putv self :state %tmp.575;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 189 24 ]
+        %tmp.576 = self;
+        %tmp.577 = getv function %tmp.576 :savegame;
+        invoke %tmp.576 %tmp.577();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 190 24 ]
+        %tmp.578 = getm $.Toybox.WatchUi;
+        %tmp.579 = getv function %tmp.578 :requestUpdate;
+        invoke %tmp.578 %tmp.579();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 191 24 ]
+        %tmp.580 = true;
+        ret %tmp.580;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_186_51_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_186_27_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_186_27_if_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_179_27_if_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_160_27_if_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_147_27_if_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_129_27_if_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_111_27_if_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_97_27_if_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_94_27_if_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_91_20_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 193 20 ]
+        %tmp.581 = false;
+        ret %tmp.581;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_80_45_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_80_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_80_16_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 195 16 ]
+        %tmp.582 = null;
+        putv self :action %tmp.582;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 197 16 ]
+        for @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_197_16_for_test @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_197_16_for_incr @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_197_16_for_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_197_16_for_init:
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_197_16_for_begin" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_197_16_for_end" ]
+        %i.3 = local;
+        %tmp.583 = 0;
+        lputv %i.3 %tmp.583;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_197_16_for_test:
+        %tmp.585 = lgetv %i.3;
+        %tmp.587 = getv ? :grid;
+        %tmp.588 = lt %tmp.585 %tmp.587;
+        bf %tmp.588 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_197_16_for_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_197_16_for_begin:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_197_41_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 198 20 ]
+        for @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_198_20_for_test @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_198_20_for_incr @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_198_20_for_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_198_20_for_init:
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_198_20_for_begin" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_198_20_for_end" ]
+        %j.4 = local;
+        %tmp.589 = 0;
+        lputv %j.4 %tmp.589;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_198_20_for_test:
+        %tmp.591 = lgetv %j.4;
+        %tmp.593 = getv ? :grid;
+        %tmp.594 = lt %tmp.591 %tmp.593;
+        bf %tmp.594 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_198_20_for_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_198_20_for_begin:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_198_45_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 199 24 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_199_24_if_stmt:
+        %tmp.595 = self;
+        %tmp.596 = getv function %tmp.595 :inbox;
+        %tmp.598 = lgetv %xy.1;
+        %tmp.599 = newa 2;
+        %tmp.601 = getv ? :bigXY;
+        %tmp.602 = 0;
+        %tmp.603 = agetv %tmp.601 %tmp.602;
+        %tmp.605 = lgetv %i.3;
+        %tmp.607 = getv ? :big1WH;
+        %tmp.608 = 0;
+        %tmp.609 = agetv %tmp.607 %tmp.608;
+        %tmp.610 = mul %tmp.605 %tmp.609;
+        %tmp.611 = add %tmp.603 %tmp.610;
+        %tmp.612 = dup %tmp.599;
+        %tmp.613 = aputv %tmp.612 0 %tmp.611;
+        %tmp.615 = getv ? :bigXY;
+        %tmp.616 = 1;
+        %tmp.617 = agetv %tmp.615 %tmp.616;
+        %tmp.619 = lgetv %j.4;
+        %tmp.621 = getv ? :big1WH;
+        %tmp.622 = 1;
+        %tmp.623 = agetv %tmp.621 %tmp.622;
+        %tmp.624 = mul %tmp.619 %tmp.623;
+        %tmp.625 = add %tmp.617 %tmp.624;
+        %tmp.626 = dup %tmp.613;
+        %tmp.627 = aputv %tmp.626 1 %tmp.625;
+        %tmp.629 = getv ? :big1WH;
+        %tmp.630 = invoke %tmp.595 %tmp.596(%tmp.598, %tmp.627, %tmp.629);
+        bf %tmp.630 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_199_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_199_24_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_199_90_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 200 28 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_200_28_if_stmt:
+        %tmp.632 = getv ? :disp;
+        %tmp.633 = getv function %tmp.632 :equals;
+        %tmp.634 = "S";
+        %tmp.635 = invoke %tmp.632 %tmp.633(%tmp.634);
+        bf %tmp.635 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_200_28_if_false;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_200_28_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_200_50_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 201 32 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_201_32_if_stmt:
+        %tmp.637 = getv ? :sect;
+        %tmp.639 = lgetv %i.3;
+        %tmp.640 = agetv %tmp.637 %tmp.639;
+        %tmp.642 = lgetv %j.4;
+        %tmp.643 = agetv %tmp.640 %tmp.642;
+        %tmp.644 = null;
+        %tmp.645 = eq %tmp.643 %tmp.644;
+        bf %tmp.645 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_201_32_if_false;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_201_32_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_201_56_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 203 36 ]
+        %tmp.646 = "I";
+        putv self :action %tmp.646;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 204 36 ]
+        %tmp.647 = newa 2;
+        %tmp.649 = lgetv %i.3;
+        %tmp.650 = dup %tmp.647;
+        %tmp.651 = aputv %tmp.650 0 %tmp.649;
+        %tmp.653 = lgetv %j.4;
+        %tmp.654 = dup %tmp.651;
+        %tmp.655 = aputv %tmp.654 1 %tmp.653;
+        putv self :actionXY %tmp.655;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 205 36 ]
+        %tmp.656 = getm $.Toybox.WatchUi;
+        %tmp.657 = getv function %tmp.656 :requestUpdate;
+        invoke %tmp.656 %tmp.657();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 206 36 ]
+        %tmp.658 = true;
+        ret %tmp.658;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_201_56_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_201_32_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_201_32_if_false:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 207 39 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_207_39_if_stmt:
+        %tmp.660 = getv ? :sect;
+        %tmp.662 = lgetv %i.3;
+        %tmp.663 = agetv %tmp.660 %tmp.662;
+        %tmp.665 = lgetv %j.4;
+        %tmp.666 = agetv %tmp.663 %tmp.665;
+        %tmp.667 = 0;
+        %tmp.668 = eq %tmp.666 %tmp.667;
+        bf %tmp.668 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_207_39_if_false;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_207_39_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_207_60_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 209 36 ]
+        %tmp.669 = "A";
+        putv self :action %tmp.669;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 210 36 ]
+        %tmp.670 = newa 2;
+        %tmp.672 = lgetv %i.3;
+        %tmp.673 = dup %tmp.670;
+        %tmp.674 = aputv %tmp.673 0 %tmp.672;
+        %tmp.676 = lgetv %j.4;
+        %tmp.677 = dup %tmp.674;
+        %tmp.678 = aputv %tmp.677 1 %tmp.676;
+        putv self :actionXY %tmp.678;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 211 36 ]
+        %tmp.679 = getm $.Toybox.WatchUi;
+        %tmp.680 = getv function %tmp.679 :requestUpdate;
+        invoke %tmp.679 %tmp.680();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 212 36 ]
+        %tmp.681 = true;
+        ret %tmp.681;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_207_60_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_207_39_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_207_39_if_false:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 213 39 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_213_39_if_stmt:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_213_43_begin:
+        %tmp.683 = getv ? :sect;
+        %tmp.685 = lgetv %i.3;
+        %tmp.686 = agetv %tmp.683 %tmp.685;
+        %tmp.688 = lgetv %j.4;
+        %tmp.689 = agetv %tmp.686 %tmp.688;
+        %tmp.690 = 1;
+        %tmp.691 = eq %tmp.689 %tmp.690;
+        %tmp.692 = dup %tmp.691;
+        bf %tmp.692 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_213_63_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_213_63_true:
+        %tmp.693 = self;
+        %tmp.694 = getv function %tmp.693 :bybase;
+        %tmp.695 = self;
+        %tmp.696 = getv function %tmp.695 :findship;
+        %tmp.697 = invoke %tmp.695 %tmp.696();
+        %tmp.698 = invoke %tmp.693 %tmp.694(%tmp.697);
+        %tmp.699 = and %tmp.691 %tmp.698;
+        push %tmp.699;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_213_63_end:
+        %tmp.700 = phi [%tmp.692 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_213_43_begin] [%tmp.699 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_213_63_true] [%tmp.700 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_213_63_end];
+        bf %tmp.700 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_213_39_if_false;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_213_39_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_213_83_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 215 36 ]
+        %tmp.701 = "D";
+        putv self :action %tmp.701;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 216 36 ]
+        %tmp.702 = newa 2;
+        %tmp.704 = lgetv %i.3;
+        %tmp.705 = dup %tmp.702;
+        %tmp.706 = aputv %tmp.705 0 %tmp.704;
+        %tmp.708 = lgetv %j.4;
+        %tmp.709 = dup %tmp.706;
+        %tmp.710 = aputv %tmp.709 1 %tmp.708;
+        putv self :actionXY %tmp.710;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 217 36 ]
+        %tmp.711 = getm $.Toybox.WatchUi;
+        %tmp.712 = getv function %tmp.711 :requestUpdate;
+        invoke %tmp.711 %tmp.712();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 218 36 ]
+        %tmp.713 = true;
+        ret %tmp.713;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_213_83_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_213_39_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_213_39_if_false:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 219 39 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_219_39_if_stmt:
+        %tmp.715 = getv ? :sect;
+        %tmp.717 = lgetv %i.3;
+        %tmp.718 = agetv %tmp.715 %tmp.717;
+        %tmp.720 = lgetv %j.4;
+        %tmp.721 = agetv %tmp.718 %tmp.720;
+        %tmp.722 = 3;
+        %tmp.723 = eq %tmp.721 %tmp.722;
+        bf %tmp.723 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_219_39_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_219_39_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_219_60_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 220 36 ]
+        %tmp.724 = "C";
+        putv self :action %tmp.724;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 221 36 ]
+        %tmp.725 = newa 2;
+        %tmp.727 = lgetv %i.3;
+        %tmp.728 = dup %tmp.725;
+        %tmp.729 = aputv %tmp.728 0 %tmp.727;
+        %tmp.731 = lgetv %j.4;
+        %tmp.732 = dup %tmp.729;
+        %tmp.733 = aputv %tmp.732 1 %tmp.731;
+        putv self :actionXY %tmp.733;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 222 36 ]
+        %tmp.734 = getm $.Toybox.WatchUi;
+        %tmp.735 = getv function %tmp.734 :requestUpdate;
+        invoke %tmp.734 %tmp.735();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 223 36 ]
+        %tmp.736 = true;
+        ret %tmp.736;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_219_60_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_219_39_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_219_39_if_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_213_39_if_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_207_39_if_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_201_32_if_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_200_50_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_200_28_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_200_28_if_false:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_225_35_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 227 32 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_227_32_if_stmt:
+        %tmp.738 = getv ? :health;
+        %tmp.739 = 2;
+        %tmp.740 = agetv %tmp.738 %tmp.739;
+        %tmp.741 = 0;
+        %tmp.742 = gt %tmp.740 %tmp.741;
+        bf %tmp.742 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_227_32_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_227_32_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_227_51_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 228 36 ]
+        %tmp.743 = "W";
+        putv self :action %tmp.743;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 229 36 ]
+        %tmp.744 = newa 2;
+        %tmp.746 = lgetv %i.3;
+        %tmp.747 = dup %tmp.744;
+        %tmp.748 = aputv %tmp.747 0 %tmp.746;
+        %tmp.750 = lgetv %j.4;
+        %tmp.751 = dup %tmp.748;
+        %tmp.752 = aputv %tmp.751 1 %tmp.750;
+        putv self :actionXY %tmp.752;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_227_51_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_227_32_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_227_32_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 231 32 ]
+        %tmp.753 = getm $.Toybox.WatchUi;
+        %tmp.754 = getv function %tmp.753 :requestUpdate;
+        invoke %tmp.753 %tmp.754();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 232 32 ]
+        %tmp.755 = true;
+        ret %tmp.755;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_225_35_stop:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_200_28_if_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_199_90_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_199_24_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_199_24_if_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_198_45_stop:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_198_20_for_incr:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 198 ]
+        %tmp.758 = lgetv %j.4;
+        %tmp.759 = add %tmp.758 1;
+        lputv %j.4 %tmp.759;
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_198_20_for_test;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_198_20_for_end:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_197_41_stop:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_197_16_for_incr:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 197 ]
+        %tmp.762 = lgetv %i.3;
+        %tmp.763 = add %tmp.762 1;
+        lputv %i.3 %tmp.763;
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_197_16_for_test;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_197_16_for_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 237 16 ]
+        %tmp.764 = getm $.Toybox.WatchUi;
+        %tmp.765 = getv function %tmp.764 :requestUpdate;
+        invoke %tmp.764 %tmp.765();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 238 16 ]
+        %tmp.766 = true;
+        ret %tmp.766;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_239_12_switchCase:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 241 16 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_241_16_if_stmt:
+        %tmp.767 = self;
+        %tmp.768 = getv function %tmp.767 :inbox;
+        %tmp.770 = lgetv %xy.1;
+        %tmp.772 = getv ? :logXY;
+        %tmp.774 = getv ? :logWH;
+        %tmp.775 = invoke %tmp.767 %tmp.768(%tmp.770, %tmp.772, %tmp.774);
+        bf %tmp.775 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_241_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_241_16_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_241_43_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 242 20 ]
+        %tmp.776 = self;
+        %tmp.777 = getv function %tmp.776 :showLogs;
+        invoke %tmp.776 %tmp.777();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 243 20 ]
+        %tmp.778 = getm $.Toybox.WatchUi;
+        %tmp.779 = getv function %tmp.778 :requestUpdate;
+        invoke %tmp.778 %tmp.779();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 244 20 ]
+        %tmp.780 = true;
+        ret %tmp.780;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_241_43_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_241_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_241_16_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 247 16 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_247_16_if_stmt:
+        %tmp.781 = self;
+        %tmp.782 = getv function %tmp.781 :inbox;
+        %tmp.784 = lgetv %xy.1;
+        %tmp.786 = getv ? :newgameXY;
+        %tmp.788 = getv ? :newgameWH;
+        %tmp.789 = invoke %tmp.781 %tmp.782(%tmp.784, %tmp.786, %tmp.788);
+        bf %tmp.789 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_247_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_247_16_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_247_51_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 248 20 ]
+        %tmp.790 = self;
+        %tmp.791 = getv function %tmp.790 :newgame;
+        invoke %tmp.790 %tmp.791();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 249 20 ]
+        %tmp.792 = getm $.Toybox.WatchUi;
+        %tmp.793 = getv function %tmp.792 :requestUpdate;
+        invoke %tmp.792 %tmp.793();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 250 20 ]
+        %tmp.794 = true;
+        ret %tmp.794;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_247_51_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_247_16_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_247_16_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 252 16 ]
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_18_8_switchStmtEnd;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_18_8_defaultCodeBegin:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_18_8_switchStmtEnd:
+        pop;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 254 8 ]
+        %tmp.795 = false;
+        ret %tmp.795;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_15_42_stop:
+    }
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc"; @line = 257; ]
+    function impulse(xy) {
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_257_25_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 258 8 ]
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_257_25_start" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_257_25_stop" ]
+        %sxy.1 = local;
+        %tmp.1 = self;
+        %tmp.2 = getv function %tmp.1 :findship;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %sxy.1 %tmp.3;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 259 8 ]
+        %tmp.4 = getv self :sect;
+        %tmp.6 = lgetv %sxy.1;
+        %tmp.7 = 0;
+        %tmp.8 = agetv %tmp.6 %tmp.7;
+        %tmp.9 = agetv %tmp.4 %tmp.8;
+        %tmp.10 = null;
+        %tmp.12 = lgetv %sxy.1;
+        %tmp.13 = 1;
+        %tmp.14 = agetv %tmp.12 %tmp.13;
+        aputv %tmp.9 %tmp.14 %tmp.10;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 260 8 ]
+        %tmp.15 = true;
+        putv self :traveling %tmp.15;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 261 8 ]
+        %tmp.16 = self;
+        %tmp.17 = getv function %tmp.16 :gridXY;
+        %tmp.19 = lgetv %sxy.1;
+        %tmp.20 = invoke %tmp.16 %tmp.17(%tmp.19);
+        putv self :tmp %tmp.20;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 262 8 ]
+        %tmp.21 = self;
+        %tmp.22 = getv function %tmp.21 :gridXY;
+        %tmp.24 = lgetv %xy;
+        %tmp.25 = invoke %tmp.21 %tmp.22(%tmp.24);
+        putv self :tmp2 %tmp.25;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 263 8 ]
+        %tmp.26 = newa 0;
+        putv self :path %tmp.26;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 264 8 ]
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_257_25_start" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_257_25_stop" ]
+        %l.2 = local;
+        %tmp.27 = self;
+        %tmp.28 = getv function %tmp.27 :dist;
+        %tmp.30 = lgetv %sxy.1;
+        %tmp.32 = lgetv %xy;
+        %tmp.33 = invoke %tmp.27 %tmp.28(%tmp.30, %tmp.32);
+        lputv %l.2 %tmp.33;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 265 8 ]
+        %tmp.35 = lgetv %l.2;
+        %tmp.36 = 2;
+        %tmp.37 = mul %tmp.35 %tmp.36;
+        lputv %l.2 %tmp.37;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 266 8 ]
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_257_25_start" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_257_25_stop" ]
+        %x.3 = local;
+        %tmp.39 = getv ? :tmp2;
+        %tmp.40 = 0;
+        %tmp.41 = agetv %tmp.39 %tmp.40;
+        %tmp.43 = getv ? :tmp;
+        %tmp.44 = 0;
+        %tmp.45 = agetv %tmp.43 %tmp.44;
+        %tmp.46 = sub %tmp.41 %tmp.45;
+        %tmp.48 = lgetv %l.2;
+        %tmp.49 = div %tmp.46 %tmp.48;
+        lputv %x.3 %tmp.49;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 267 8 ]
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_257_25_start" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_257_25_stop" ]
+        %y.4 = local;
+        %tmp.51 = getv ? :tmp2;
+        %tmp.52 = 1;
+        %tmp.53 = agetv %tmp.51 %tmp.52;
+        %tmp.55 = getv ? :tmp;
+        %tmp.56 = 1;
+        %tmp.57 = agetv %tmp.55 %tmp.56;
+        %tmp.58 = sub %tmp.53 %tmp.57;
+        %tmp.60 = lgetv %l.2;
+        %tmp.61 = div %tmp.58 %tmp.60;
+        lputv %y.4 %tmp.61;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 268 8 ]
+        for @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_268_8_for_test @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_268_8_for_incr @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_268_8_for_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_268_8_for_init:
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_268_8_for_begin" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_268_8_for_end" ]
+        %i.5 = local;
+        %tmp.62 = 0;
+        lputv %i.5 %tmp.62;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_268_8_for_test:
+        %tmp.64 = lgetv %i.5;
+        %tmp.66 = lgetv %l.2;
+        %tmp.67 = lt %tmp.64 %tmp.66;
+        bf %tmp.67 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_268_8_for_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_268_8_for_begin:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_268_30_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 269 12 ]
+        %tmp.69 = getv ? :path;
+        %tmp.70 = getv function %tmp.69 :add;
+        %tmp.71 = newa 2;
+        %tmp.73 = getv ? :tmp;
+        %tmp.74 = 0;
+        %tmp.75 = agetv %tmp.73 %tmp.74;
+        %tmp.77 = lgetv %i.5;
+        %tmp.79 = lgetv %x.3;
+        %tmp.80 = mul %tmp.77 %tmp.79;
+        %tmp.81 = add %tmp.75 %tmp.80;
+        %tmp.82 = dup %tmp.71;
+        %tmp.83 = aputv %tmp.82 0 %tmp.81;
+        %tmp.85 = getv ? :tmp;
+        %tmp.86 = 1;
+        %tmp.87 = agetv %tmp.85 %tmp.86;
+        %tmp.89 = lgetv %i.5;
+        %tmp.91 = lgetv %y.4;
+        %tmp.92 = mul %tmp.89 %tmp.91;
+        %tmp.93 = add %tmp.87 %tmp.92;
+        %tmp.94 = dup %tmp.83;
+        %tmp.95 = aputv %tmp.94 1 %tmp.93;
+        invoke %tmp.69 %tmp.70(%tmp.95);
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_268_30_stop:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_268_8_for_incr:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 268 ]
+        %tmp.98 = lgetv %i.5;
+        %tmp.99 = add %tmp.98 1;
+        lputv %i.5 %tmp.99;
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_268_8_for_test;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_268_8_for_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 271 8 ]
+        %tmp.100 = 0;
+        putv self :seg %tmp.100;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 272 8 ]
+        %tmp.101 = 2;
+        putv self :state %tmp.101;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 273 8 ]
+        %tmp.102 = self;
+        %tmp.103 = getv function %tmp.102 :savegame;
+        invoke %tmp.102 %tmp.103();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 274 8 ]
+        %tmp.104 = getm $.Toybox.WatchUi;
+        %tmp.105 = getv function %tmp.104 :requestUpdate;
+        invoke %tmp.104 %tmp.105();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 275 8 ]
+        %tmp.106 = true;
+        ret %tmp.106;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_257_25_stop:
+    }
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc"; @line = 278; ]
+    function warp(xy) {
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_278_22_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 279 8 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_279_8_if_stmt:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_279_12_begin:
+        %tmp.2 = getv ? :ship;
+        %tmp.3 = 0;
+        %tmp.4 = agetv %tmp.2 %tmp.3;
+        %tmp.6 = lgetv %xy;
+        %tmp.7 = 0;
+        %tmp.8 = agetv %tmp.6 %tmp.7;
+        %tmp.9 = eq %tmp.4 %tmp.8;
+        %tmp.10 = dup %tmp.9;
+        bf %tmp.10 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_279_33_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_279_33_true:
+        %tmp.12 = getv ? :ship;
+        %tmp.13 = 1;
+        %tmp.14 = agetv %tmp.12 %tmp.13;
+        %tmp.16 = lgetv %xy;
+        %tmp.17 = 1;
+        %tmp.18 = agetv %tmp.16 %tmp.17;
+        %tmp.19 = eq %tmp.14 %tmp.18;
+        %tmp.20 = and %tmp.9 %tmp.19;
+        push %tmp.20;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_279_33_end:
+        %tmp.21 = phi [%tmp.10 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_279_12_begin] [%tmp.20 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_279_33_true] [%tmp.21 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_279_33_end];
+        bf %tmp.21 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_279_8_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_279_8_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_279_51_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 279 53 ]
+        %tmp.22 = false;
+        ret %tmp.22;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_279_51_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_279_8_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_279_8_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 280 8 ]
+        %tmp.23 = true;
+        putv self :traveling %tmp.23;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 281 8 ]
+        %tmp.24 = self;
+        %tmp.25 = getv function %tmp.24 :gridXY;
+        %tmp.26 = newa 2;
+        %tmp.28 = getv ? :ship;
+        %tmp.29 = 0;
+        %tmp.30 = agetv %tmp.28 %tmp.29;
+        %tmp.31 = dup %tmp.26;
+        %tmp.32 = aputv %tmp.31 0 %tmp.30;
+        %tmp.34 = getv ? :ship;
+        %tmp.35 = 1;
+        %tmp.36 = agetv %tmp.34 %tmp.35;
+        %tmp.37 = dup %tmp.32;
+        %tmp.38 = aputv %tmp.37 1 %tmp.36;
+        %tmp.39 = invoke %tmp.24 %tmp.25(%tmp.38);
+        putv self :tmp %tmp.39;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 282 8 ]
+        %tmp.40 = self;
+        %tmp.41 = getv function %tmp.40 :gridXY;
+        %tmp.43 = lgetv %xy;
+        %tmp.44 = invoke %tmp.40 %tmp.41(%tmp.43);
+        putv self :tmp2 %tmp.44;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 283 8 ]
+        %tmp.45 = newa 0;
+        putv self :path %tmp.45;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 284 8 ]
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_278_22_start" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_278_22_stop" ]
+        %l.1 = local;
+        %tmp.46 = self;
+        %tmp.47 = getv function %tmp.46 :dist;
+        %tmp.49 = getv ? :ship;
+        %tmp.51 = lgetv %xy;
+        %tmp.52 = invoke %tmp.46 %tmp.47(%tmp.49, %tmp.51);
+        lputv %l.1 %tmp.52;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 285 8 ]
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_278_22_start" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_278_22_stop" ]
+        %x.2 = local;
+        %tmp.54 = getv ? :tmp2;
+        %tmp.55 = 0;
+        %tmp.56 = agetv %tmp.54 %tmp.55;
+        %tmp.58 = getv ? :tmp;
+        %tmp.59 = 0;
+        %tmp.60 = agetv %tmp.58 %tmp.59;
+        %tmp.61 = sub %tmp.56 %tmp.60;
+        %tmp.63 = lgetv %l.1;
+        %tmp.64 = div %tmp.61 %tmp.63;
+        lputv %x.2 %tmp.64;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 286 8 ]
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_278_22_start" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_278_22_stop" ]
+        %y.3 = local;
+        %tmp.66 = getv ? :tmp2;
+        %tmp.67 = 1;
+        %tmp.68 = agetv %tmp.66 %tmp.67;
+        %tmp.70 = getv ? :tmp;
+        %tmp.71 = 1;
+        %tmp.72 = agetv %tmp.70 %tmp.71;
+        %tmp.73 = sub %tmp.68 %tmp.72;
+        %tmp.75 = lgetv %l.1;
+        %tmp.76 = div %tmp.73 %tmp.75;
+        lputv %y.3 %tmp.76;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 287 8 ]
+        for @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_287_8_for_test @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_287_8_for_incr @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_287_8_for_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_287_8_for_init:
+        [ "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_287_8_for_begin" "C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_287_8_for_end" ]
+        %i.4 = local;
+        %tmp.77 = 0;
+        lputv %i.4 %tmp.77;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_287_8_for_test:
+        %tmp.79 = lgetv %i.4;
+        %tmp.81 = lgetv %l.1;
+        %tmp.82 = lt %tmp.79 %tmp.81;
+        bf %tmp.82 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_287_8_for_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_287_8_for_begin:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_287_30_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 288 12 ]
+        %tmp.84 = getv ? :path;
+        %tmp.85 = getv function %tmp.84 :add;
+        %tmp.86 = newa 2;
+        %tmp.88 = getv ? :tmp;
+        %tmp.89 = 0;
+        %tmp.90 = agetv %tmp.88 %tmp.89;
+        %tmp.92 = lgetv %i.4;
+        %tmp.94 = lgetv %x.2;
+        %tmp.95 = mul %tmp.92 %tmp.94;
+        %tmp.96 = add %tmp.90 %tmp.95;
+        %tmp.97 = dup %tmp.86;
+        %tmp.98 = aputv %tmp.97 0 %tmp.96;
+        %tmp.100 = getv ? :tmp;
+        %tmp.101 = 1;
+        %tmp.102 = agetv %tmp.100 %tmp.101;
+        %tmp.104 = lgetv %i.4;
+        %tmp.106 = lgetv %y.3;
+        %tmp.107 = mul %tmp.104 %tmp.106;
+        %tmp.108 = add %tmp.102 %tmp.107;
+        %tmp.109 = dup %tmp.98;
+        %tmp.110 = aputv %tmp.109 1 %tmp.108;
+        invoke %tmp.84 %tmp.85(%tmp.110);
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_287_30_stop:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_287_8_for_incr:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 287 ]
+        %tmp.113 = lgetv %i.4;
+        %tmp.114 = add %tmp.113 1;
+        lputv %i.4 %tmp.114;
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_287_8_for_test;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_287_8_for_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 290 8 ]
+        %tmp.115 = 0;
+        putv self :seg %tmp.115;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 291 8 ]
+        %tmp.116 = 2;
+        putv self :state %tmp.116;
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 292 8 ]
+        %tmp.117 = self;
+        %tmp.118 = getv function %tmp.117 :savegame;
+        invoke %tmp.117 %tmp.118();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 293 8 ]
+        %tmp.119 = getm $.Toybox.WatchUi;
+        %tmp.120 = getv function %tmp.119 :requestUpdate;
+        invoke %tmp.119 %tmp.120();
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 294 8 ]
+        %tmp.121 = true;
+        ret %tmp.121;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_278_22_stop:
+    }
+    [ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc"; @line = 301; ]
+    public
+    function inbox(point, boxxy, boxwh) as Boolean {
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_301_56_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 302 8 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_302_8_if_stmt:
+        %tmp.2 = lgetv %point;
+        %tmp.3 = 0;
+        %tmp.4 = agetv %tmp.2 %tmp.3;
+        %tmp.6 = lgetv %boxxy;
+        %tmp.7 = 0;
+        %tmp.8 = agetv %tmp.6 %tmp.7;
+        %tmp.9 = lt %tmp.4 %tmp.8;
+        bf %tmp.9 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_302_8_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_302_8_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_302_31_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 302 32 ]
+        %tmp.10 = false;
+        ret %tmp.10;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_302_31_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_302_8_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_302_8_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 303 8 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_303_8_if_stmt:
+        %tmp.12 = lgetv %point;
+        %tmp.13 = 0;
+        %tmp.14 = agetv %tmp.12 %tmp.13;
+        %tmp.16 = lgetv %boxxy;
+        %tmp.17 = 0;
+        %tmp.18 = agetv %tmp.16 %tmp.17;
+        %tmp.20 = lgetv %boxwh;
+        %tmp.21 = 0;
+        %tmp.22 = agetv %tmp.20 %tmp.21;
+        %tmp.23 = add %tmp.18 %tmp.22;
+        %tmp.24 = gt %tmp.14 %tmp.23;
+        bf %tmp.24 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_303_8_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_303_8_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_303_40_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 303 41 ]
+        %tmp.25 = false;
+        ret %tmp.25;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_303_40_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_303_8_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_303_8_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 304 8 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_304_8_if_stmt:
+        %tmp.27 = lgetv %point;
+        %tmp.28 = 1;
+        %tmp.29 = agetv %tmp.27 %tmp.28;
+        %tmp.31 = lgetv %boxxy;
+        %tmp.32 = 1;
+        %tmp.33 = agetv %tmp.31 %tmp.32;
+        %tmp.34 = lt %tmp.29 %tmp.33;
+        bf %tmp.34 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_304_8_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_304_8_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_304_31_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 304 32 ]
+        %tmp.35 = false;
+        ret %tmp.35;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_304_31_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_304_8_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_304_8_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 305 8 ]
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_305_8_if_stmt:
+        %tmp.37 = lgetv %point;
+        %tmp.38 = 1;
+        %tmp.39 = agetv %tmp.37 %tmp.38;
+        %tmp.41 = lgetv %boxxy;
+        %tmp.42 = 1;
+        %tmp.43 = agetv %tmp.41 %tmp.42;
+        %tmp.45 = lgetv %boxwh;
+        %tmp.46 = 1;
+        %tmp.47 = agetv %tmp.45 %tmp.46;
+        %tmp.48 = add %tmp.43 %tmp.47;
+        %tmp.49 = gt %tmp.39 %tmp.48;
+        bf %tmp.49 @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_305_8_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_305_8_if_true:
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_305_40_start:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 305 41 ]
+        %tmp.50 = false;
+        ret %tmp.50;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_305_40_stop:
+        goto @C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_305_8_if_end;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_305_8_if_end:
+[ "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc" 306 8 ]
+        %tmp.51 = true;
+        ret %tmp.51;
+C_Garmin_Projects_SpaceTrek_source_SpaceTrekDelegate_mc_301_56_stop:
+    }
+}
+[ @file = "C:\Garmin\Projects\SpaceTrek\source\SpaceTrekDelegate.mc"; @line = 1; ]
+<init> {
+}
